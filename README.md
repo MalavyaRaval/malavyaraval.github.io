@@ -54,12 +54,6 @@ Description of another cool project.
 📧 **Email**: [mraval@sfsu.edu](mailto:mraval@sfsu.edu)  
 💼 **LinkedIn**: [Malavya Raval](https://www.linkedin.com/in/malavya-raval/)
 
-## 📈 **Wakatime Stats**
-<!-- Uncomment the below code to enable wakatime stats -->
-
-[![Malavya's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=MalavyaRaval)](https://github.com/MalavyaRaval/github-readme-stats)
-
-
 ## 🌍 **Let's Connect!**
 
 Feel free to reach out to me on **LinkedIn**, shoot me an **email**, or check out my **GitHub** for my latest projects!

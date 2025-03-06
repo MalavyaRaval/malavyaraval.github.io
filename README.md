@@ -56,9 +56,9 @@ Description of another cool project.
 
 ## 📈 **Wakatime Stats**
 <!-- Uncomment the below code to enable wakatime stats -->
-<!--
+
 [![Malavya's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=MalavyaRaval)](https://github.com/MalavyaRaval/github-readme-stats)
--->
+
 
 ## 🌍 **Let's Connect!**
 

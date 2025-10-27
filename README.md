@@ -1,3 +1,4 @@
+<div style="background-color: #2c2c2c; color: #f0f0f0; font-family: Arial, sans-serif; padding: 20px;">
 # Malavya Raval  
 
 ### Hello Everyone 👋  
@@ -64,7 +65,7 @@ Feel free to explore my projects pinned below, or connect with me!
 
 ## 🔍 What’s Next  
 I’m actively looking to build and contribute to projects that leverage full-stack development, data engineering, AI/ML, or performance-critical systems. I’d love to collaborate, learn, and grow — so please feel free to reach out if you have an idea or just want to say hi!
-
+</div>
 <!--
 **MalavyaRaval/MalavyaRaval** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 

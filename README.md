@@ -1,11 +1,14 @@
 # Malavya Raval  
 
-### Hello Everyone 👋  
-I am a CS grad from [San Francisco State University](https://www.sfsu.edu/index.html), with a passion for building impactful software and systems.  
+### Hey there 👋  
+I am a Computer Science graduate from [San Francisco State University](https://www.sfsu.edu/index.html) with a deep interest in building practical, user-focused software and scalable systems.  
 
-I have worked on my personal website, designed database-backed applications, and explored full-stack development using Java, Python, C++, HTML, CSS, JavaScript, Swift and SQL. I’ve also completed over [500 LeetCode](https://leetcode.com/Malavya/) problems and tackled many [Codewars](https://www.codewars.com/users/MalavyaRaval) Kata to sharpen my algorithmic and problem-solving skills.  
+My work spans full-stack development, AI/ML applications, and system design. I’ve built and presented AI-powered tools at top conferences (AAAI, FQAS) and recently won a hackathon for a real-time safety platform. I actively work with TypeScript, Python, Java, C++, SQL, and React.  
 
-Feel free to explore my projects pinned below, or connect with me!  
+I've solved over [500 LeetCode](https://leetcode.com/Malavya/) problems to strengthen my DSA foundation, and I'm always looking to learn and build things that matter.  
+
+Check out some of my featured projects below and feel free to connect or reach out!
+
 
 ---
 

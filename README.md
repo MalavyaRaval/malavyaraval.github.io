@@ -1,72 +1,125 @@
-# Malavya Raval  
+# Portfolio Website
 
-### Hey there 👋  
-I am a Computer Science graduate from [San Francisco State University](https://www.sfsu.edu/index.html) with a deep interest in building practical, user-focused software and scalable systems.  
+A modern, responsive portfolio website built with React, Vite, and Tailwind CSS. Perfect for showcasing your projects and skills.
 
-My work spans full-stack development, AI/ML applications, and system design. I’ve built and presented AI-powered tools at top conferences (AAAI, FQAS) and recently won a hackathon for a real-time safety platform. I actively work with TypeScript, Python, Java, C++, SQL, and React.  
+## Features
 
-I've solved over [500 LeetCode](https://leetcode.com/Malavya/) problems to strengthen my DSA foundation, and I'm always looking to learn and build things that matter.  
+- ✨ Modern, clean design with Tailwind CSS
+- 📱 Fully responsive (mobile, tablet, desktop)
+- ⚡ Built with Vite for fast development and optimized builds
+- 🎨 Multiple sections: Hero, About, Projects, Skills, Contact
+- 📧 Contact form with form validation
+- 🚀 Ready for GitHub Pages deployment
 
-Check out some of my featured projects below and feel free to connect or reach out!
+## Sections
 
+1. **Hero** - Eye-catching introduction section
+2. **About** - Tell your story and background
+3. **Projects** - Showcase your portfolio projects
+4. **Skills** - Display your technical skills by category
+5. **Contact** - Contact form and social links
+6. **Footer** - Quick navigation and additional links
 
----
+## Getting Started
 
-## 📈 GitHub Stats  
-![Malavya's GitHub stats](https://github-readme-stats.vercel.app/api?username=MalavyaRaval&show_icons=true&theme=dark&hide_border=true)  
-![Malavya's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=MalavyaRaval&hide_border=true&theme=dark)  
-![Malavya's Profile Summary](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MalavyaRaval&theme=dark&hide_border=true)  
-![Malavya's GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=MalavyaRaval&theme=dark&hide_border=true)  
+### Prerequisites
 
----
+- Node.js (version 16 or higher)
+- npm or yarn
 
-## 🛠 Languages & Tools  
-![Java](https://img.shields.io/badge/Java-000?&logo=Java)
-![Python](https://img.shields.io/badge/Python-000?&logo=python)
-![C++](https://img.shields.io/badge/C%2B%2B-000?&logo=c%2b%2b&logoColor=00599C)
-![SQL](https://img.shields.io/badge/SQL-000?&logo=MySQL&logoColor=4479A1)
-![JavaScript](https://img.shields.io/badge/JavaScript-000?&logo=JavaScript&logoColor=ddc508)
-![C](https://img.shields.io/badge/C-000?&logo=C)
-![Swift](https://img.shields.io/badge/Swift-000?&logo=swift)
-![HTML](https://img.shields.io/badge/HTML-000?logo=html5)
-![CSS](https://img.shields.io/badge/CSS-000?logo=css3)
-![MongoDB](https://img.shields.io/badge/MongoDB-000?logo=mongodb)
-![Photoshop](https://img.shields.io/badge/Photoshop-000?logo=adobe-photoshop)
-[![GitHub](https://img.shields.io/badge/GitHub-000?logo=github)](https://github.com/MalavyaRaval)
-![Profile views](https://komarev.com/ghpvc/?username=MalavyaRaval&style=for-the-badge&color=blueviolet)
-![LeetCode solved](https://img.shields.io/badge/LeetCode-500+-orange?logo=leetcode&logoColor=white)
-![Codewars kata](https://img.shields.io/badge/Codewars-Katas-purple?logo=codewars&logoColor=white)
-![React](https://img.shields.io/badge/React-000?&logo=react&logoColor=61DAFB)
-![Node.js](https://img.shields.io/badge/Node.js-000?&logo=node.js&logoColor=339933)
-![Docker](https://img.shields.io/badge/Docker-000?&logo=docker&logoColor=2496ED)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-000?&logo=kubernetes&logoColor=326CE5)
-![AWS](https://img.shields.io/badge/AWS-000?&logo=amazonaws&logoColor=FF9900)
-![Google Cloud](https://img.shields.io/badge/Google_Cloud-000?&logo=googlecloud&logoColor=4285F4)
-![Azure](https://img.shields.io/badge/Azure-000?&logo=microsoft-azure&logoColor=0078D4)
-![Terraform](https://img.shields.io/badge/Terraform-000?&logo=terraform&logoColor=7B42BC)
-![Vim](https://img.shields.io/badge/Vim-000?&logo=vim&logoColor=019733)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-000?&logo=postgresql&logoColor=336791)
-![Jupyter](https://img.shields.io/badge/Jupyter-000?&logo=jupyter&logoColor=F37626)
-![Figma](https://img.shields.io/badge/Figma-000?&logo=figma&logoColor=F24E1E)
-![Slack](https://img.shields.io/badge/Slack-000?&logo=slack&logoColor=4A154B)
-![Trello](https://img.shields.io/badge/Trello-000?&logo=trello&logoColor=0052CC)
-![Linux](https://img.shields.io/badge/Linux-000?&logo=linux&logoColor=FCC624)
-![MongoDB Atlas](https://img.shields.io/badge/MongoDB_Atlas-000?&logo=mongodb&logoColor=47A248)
-![SwiftUI](https://img.shields.io/badge/SwiftUI-000?&logo=swift&logoColor=F05138)
-![GraphQL](https://img.shields.io/badge/GraphQL-000?&logo=graphql&logoColor=E10098)
-![GitLab](https://img.shields.io/badge/GitLab-000?&logo=gitlab&logoColor=FC6D26)
-![Vercel](https://img.shields.io/badge/Vercel-000?&logo=vercel&logoColor=000000)
+### Installation
 
----
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/malavyaraval.github.io.git
+   cd malavyaraval.github.io
+   ```
 
-## 📬 Let’s Connect  
-- Email: mraval@sfsu.edu  
-- LinkedIn: [linkedin.com/in/malavya-raval/](https://www.linkedin.com/in/malavya-raval/)  
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
----
+3. Start the development server
+   ```bash
+   npm run dev
+   ```
 
-<img height="120" alt="Thanks for visiting me" width="100%" src="https://github.com/MalavyaRaval/malavyaraval.github.io/blob/main/marquee.svg" />
-<br />
+The site will be available at `http://localhost:5173`
 
-## 🔍 What’s Next  
-I’m actively looking to build and contribute to projects that leverage full-stack development, data engineering, AI/ML, or performance-critical systems. I’d love to collaborate, learn, and grow so please feel free to reach out if you have an idea or just want to say hi!
+## Customization
+
+### Update Your Information
+
+1. **Header** - Edit the logo text in `src/components/Header.jsx`
+2. **Hero Section** - Update headline and description in `src/components/Hero.jsx`
+3. **About Section** - Add your bio and profile image in `src/components/About.jsx`
+4. **Projects** - Edit project details in `src/components/Projects.jsx`
+5. **Skills** - Update your skills in `src/components/Skills.jsx`
+6. **Contact** - Add your email, location, and social links in `src/components/Contact.jsx`
+7. **Footer** - Customize footer content in `src/components/Footer.jsx`
+
+### Styling
+
+The site uses Tailwind CSS for styling. Modify colors and styles directly in the component files.
+
+## Deployment to GitHub Pages
+
+### Deployment Steps
+
+1. **Build the project**
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to GitHub Pages**
+   ```bash
+   npm run deploy
+   ```
+
+The site will be automatically deployed to `https://yourusername.github.io`
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.jsx        # Navigation header
+│   ├── Hero.jsx          # Hero section
+│   ├── About.jsx         # About section
+│   ├── Projects.jsx      # Projects showcase
+│   ├── Skills.jsx        # Skills section
+│   ├── Contact.jsx       # Contact form
+│   └── Footer.jsx        # Footer
+├── App.jsx               # Main component
+├── App.css               # App styles
+├── main.jsx              # Entry point
+└── index.css             # Global styles
+```
+
+## Technologies Used
+
+- **React** - UI library
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **ESLint** - Code quality
+
+## Tips for Customization
+
+1. **Profile Image**: Replace the placeholder image URL in About.jsx with your actual profile photo
+2. **Project Details**: Update project descriptions, images, and links to match your portfolio
+3. **Contact Form**: The form currently shows an alert. Set up form submission to an email service
+4. **Social Links**: Add your actual social media and GitHub profile links
+5. **SEO**: Update meta tags in `index.html` for better search engine visibility
+
+## License
+
+This project is open source and available under the MIT License.

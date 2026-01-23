@@ -10,17 +10,18 @@ A professional, dark-mode portfolio website personalized with your information:
 ✅ **Hero Section**: Your name, tagline, and achievements  
 ✅ **About Section**: Your bio from GitHub, profile image  
 ✅ **Projects**: 6 real projects from your GitHub:
-   - LSP (Language Server Protocol)
-   - SafeWalk (Hackathon Winner)
-   - CareerBoost (Full-Stack Career App)
-   - Image Denoising (GPU Computing)
-   - Web Scrapping (Python)
-   - Classical ML Lab (Jupyter Notebooks)
+
+- LSP (Language Server Protocol)
+- SafeWalk (Hackathon Winner)
+- CareerBoost (Full-Stack Career App)
+- Image Denoising (GPU Computing)
+- Web Scrapping (Python)
+- Classical ML Lab (Jupyter Notebooks)
 
 ✅ **Skills**: Organized by category (Languages, Frontend, Backend, AI/ML, DevOps, Tools)  
 ✅ **Achievements**: 500+ LeetCode Problems, Hackathon Winner, Conference Papers, GitHub Contributions  
 ✅ **Contact**: Your email (mraval@sfsu.edu), LinkedIn, GitHub, LeetCode, Google Scholar  
-✅ **Design**: Professional dark mode with blue/cyan accents perfect for a CS grad  
+✅ **Design**: Professional dark mode with blue/cyan accents perfect for a CS grad
 
 ## 🎨 Design Features
 
@@ -34,6 +35,7 @@ A professional, dark-mode portfolio website personalized with your information:
 ## 🚀 Ready to Deploy
 
 ### Quick Deploy (2 steps)
+
 ```bash
 npm run build
 npm run deploy
@@ -42,9 +44,11 @@ npm run deploy
 Your site will be live at: **https://malavyaraval.github.io**
 
 ### Local Testing
+
 ```bash
 npm run dev
 ```
+
 Visit `http://localhost:5173` to see it locally
 
 ## 📁 Project Structure
@@ -118,6 +122,7 @@ Search for `blue-400`, `gray-800` in components - edit as needed
 ## 🌟 Highlights
 
 Your portfolio showcases:
+
 - 🎓 CS Graduate status
 - 💻 Strong technical skills (TypeScript, Python, Java, C++, etc.)
 - 🚀 Full-stack development experience
@@ -128,6 +133,7 @@ Your portfolio showcases:
 - 💪 500+ LeetCode problems solved
 
 Perfect for attracting:
+
 - Recruiters and hiring managers
 - Potential collaborators
 - Open source contributors
@@ -143,6 +149,7 @@ Perfect for attracting:
 ## 📞 Support Tips
 
 If something doesn't work:
+
 1. Check Node.js version: `node --version` (need 16+)
 2. Clear cache: `npm cache clean --force`
 3. Reinstall: `rm -rf node_modules && npm install`

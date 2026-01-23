@@ -3,6 +3,7 @@
 ## Design Overview
 
 Your portfolio features a **professional dark mode** design with:
+
 - Dark gray backgrounds (gray-900, gray-800)
 - Blue/cyan gradient accents
 - Smooth transitions and animations
@@ -11,15 +12,18 @@ Your portfolio features a **professional dark mode** design with:
 ## Visual Sections
 
 ### 1. Header (Navigation)
+
 ```
 [MR]  About  Projects  Skills  Contact
 ```
+
 - Fixed header with gradient logo
 - Smooth scroll to each section
 - Mobile hamburger menu
 - Dark theme with blue hover effects
 
 ### 2. Hero Section
+
 ```
 ┌─────────────────────────────────────────┐
 │        MALAVYA RAVAL                    │
@@ -33,11 +37,13 @@ Your portfolio features a **professional dark mode** design with:
 │  [View My Work]  [Let's Connect]        │
 └─────────────────────────────────────────┘
 ```
+
 - Gradient background
 - Floating decorative elements
 - Two CTA buttons
 
 ### 3. About Section
+
 ```
 ┌────────────────┬────────────────────────┐
 │                │  Your Journey...       │
@@ -48,12 +54,14 @@ Your portfolio features a **professional dark mode** design with:
 │                │   State University...  │
 └────────────────┴────────────────────────┘
 ```
+
 - Your GitHub profile image
 - Your complete bio
 - Multiple paragraphs
 - Professional styling
 
 ### 4. Featured Projects (3x2 Grid or 6 Cards)
+
 ```
 ┌─────────────┬─────────────┬─────────────┐
 │ LSP         │ SafeWalk    │ CareerBoost │
@@ -69,12 +77,14 @@ Your portfolio features a **professional dark mode** design with:
 │ View on GH →│ View on GH →│ View on GH →│
 └─────────────┴─────────────┴─────────────┘
 ```
+
 - 6 projects in a responsive grid
 - Each with description and tech tags
 - Links to GitHub repositories
 - Hover animations
 
 ### 5. Skills & Achievements
+
 ```
 ┌──────────────┬──────────────┬──────────────┐
 │ Languages    │ Frontend     │ Backend      │
@@ -99,12 +109,14 @@ Your portfolio features a **professional dark mode** design with:
 │Problems  │ Winner   │ Papers   │Contrib.  │
 └──────────┴──────────┴──────────┴──────────┘
 ```
+
 - 6 skill categories
 - All your technologies
 - Achievement stats
 - Icon bullets
 
 ### 6. Contact Section
+
 ```
 ┌─────────────────────┬──────────────────┐
 │                     │  Contact Form    │
@@ -122,12 +134,14 @@ Your portfolio features a **professional dark mode** design with:
 │ Google Scholar ··  │                  │
 └─────────────────────┴──────────────────┘
 ```
+
 - Contact information
 - Social media links
 - Contact form
 - Professional styling
 
 ### 7. Footer
+
 ```
 ┌──────────────────────────────────────────┐
 │ Malavya Raval     Quick Links   Connect  │
@@ -139,6 +153,7 @@ Your portfolio features a **professional dark mode** design with:
 │ © 2026 Malavya Raval. Built with React..│
 └──────────────────────────────────────────┘
 ```
+
 - Professional footer
 - Quick navigation
 - Social links
@@ -147,17 +162,20 @@ Your portfolio features a **professional dark mode** design with:
 ## Color Scheme
 
 ### Primary Colors
+
 - **Dark Background**: `#111827` (gray-900)
 - **Card Background**: `#1F2937` (gray-800)
 - **Accent Primary**: `#3B82F6` (blue-500)
 - **Accent Secondary**: `#06B6D4` (cyan-400)
 
 ### Text Colors
+
 - **Primary Text**: `#F3F4F6` (gray-100)
 - **Secondary Text**: `#D1D5DB` (gray-300)
 - **Tertiary Text**: `#9CA3AF` (gray-400)
 
 ### Hover Effects
+
 - Scale up: `hover:-translate-y-2`
 - Border highlight: `hover:border-blue-500/50`
 - Shadow glow: `hover:shadow-blue-500/20`
@@ -172,16 +190,19 @@ Your portfolio features a **professional dark mode** design with:
 ## Responsive Design
 
 ### Desktop (≥1024px)
+
 - Full-width layout
 - 3-column grids
 - Side-by-side sections
 
 ### Tablet (768px - 1023px)
+
 - 2-column grids
 - Adjusted spacing
 - Optimized padding
 
 ### Mobile (<768px)
+
 - Single column layout
 - Hamburger menu
 - Touch-friendly buttons
@@ -223,6 +244,7 @@ Your portfolio features a **professional dark mode** design with:
 ## Mobile Experience
 
 Your portfolio is optimized for:
+
 - Smooth scrolling on mobile
 - Touch-friendly buttons (44px minimum)
 - Readable text on small screens

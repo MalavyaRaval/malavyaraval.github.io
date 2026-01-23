@@ -1,79 +1,92 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
+    name: "",
+    email: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // Add your form submission logic here
-    console.log('Form submitted:', formData)
-    setFormData({ name: '', email: '', message: '' })
-    alert('Thank you for reaching out! I\'ll get back to you soon.')
-  }
+    console.log("Form submitted:", formData);
+    setFormData({ name: "", email: "", message: "" });
+    alert("Thank you for reaching out! I'll get back to you soon.");
+  };
 
   return (
     <section id="contact" className="py-20 bg-gray-900/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center">Let's Connect</h2>
+        <h2 className="text-4xl font-bold text-white mb-12 text-center">
+          Let's Connect
+        </h2>
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div>
             <p className="text-gray-300 mb-8 leading-relaxed text-lg">
-              I'm actively looking to build and contribute to projects that leverage full-stack development, data engineering, AI/ML, or performance-critical systems. 
-              Whether you have an idea, want to collaborate, or just want to say hi, feel free to reach out!
+              I'm actively looking to build and contribute to projects that
+              leverage full-stack development, data engineering, AI/ML, or
+              performance-critical systems. Whether you have an idea, want to
+              collaborate, or just want to say hi, feel free to reach out!
             </p>
             <div className="space-y-6">
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2 text-lg">Email</h4>
-                <a href="mailto:mraval@sfsu.edu" className="text-gray-300 hover:text-blue-400 transition">
+                <h4 className="font-semibold text-blue-400 mb-2 text-lg">
+                  Email
+                </h4>
+                <a
+                  href="mailto:mraval@sfsu.edu"
+                  className="text-gray-300 hover:text-blue-400 transition"
+                >
                   mraval@sfsu.edu
                 </a>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-400 mb-2 text-lg">Location</h4>
+                <h4 className="font-semibold text-blue-400 mb-2 text-lg">
+                  Location
+                </h4>
                 <p className="text-gray-300">San Francisco, CA</p>
               </div>
               <div>
-                <h4 className="font-semibold text-blue-400 mb-3 text-lg">Connect With Me</h4>
+                <h4 className="font-semibold text-blue-400 mb-3 text-lg">
+                  Connect With Me
+                </h4>
                 <div className="flex gap-4">
-                  <a 
-                    href="https://www.linkedin.com/in/malavya-raval/" 
+                  <a
+                    href="https://www.linkedin.com/in/malavya-raval/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-blue-400 transition font-medium"
                   >
                     LinkedIn
                   </a>
-                  <a 
-                    href="https://github.com/MalavyaRaval" 
+                  <a
+                    href="https://github.com/MalavyaRaval"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-blue-400 transition font-medium"
                   >
                     GitHub
                   </a>
-                  <a 
-                    href="https://leetcode.com/Malavya/" 
+                  <a
+                    href="https://leetcode.com/Malavya/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-blue-400 transition font-medium"
                   >
                     LeetCode
                   </a>
-                  <a 
-                    href="https://scholar.google.com/citations?user=3m_RhuAAAAAJ&hl=en" 
+                  <a
+                    href="https://scholar.google.com/citations?user=3m_RhuAAAAAJ&hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-blue-400 transition font-medium"
@@ -89,7 +102,10 @@ export default function Contact() {
           <div className="bg-gray-800/60 backdrop-blur-sm rounded-lg border border-gray-700 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -104,7 +120,10 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -119,7 +138,10 @@ export default function Contact() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-300 mb-2"
+                >
                   Message
                 </label>
                 <textarea
@@ -144,5 +166,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

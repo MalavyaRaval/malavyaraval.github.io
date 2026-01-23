@@ -16,18 +16,27 @@ export default function Hero() {
             Computer Science Graduate | Full-Stack Developer | AI/ML Enthusiast
           </p>
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Building practical, user-focused software and scalable systems. 
-            Published AI research 🔬 | Hackathon winner 🏆 | 500+ LeetCode problems solved 💪
+            Building practical, user-focused software and scalable systems.
+            Published AI research 🔬 | Hackathon winner 🏆 | 500+ LeetCode
+            problems solved 💪
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <button
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105"
             >
               View My Work
             </button>
             <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400/10 px-8 py-3 rounded-lg font-semibold transition"
             >
               Let's Connect
@@ -36,5 +45,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

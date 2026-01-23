@@ -30,12 +30,14 @@ A modern, responsive portfolio website built with React, Vite, and Tailwind CSS.
 ### Installation
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/yourusername/malavyaraval.github.io.git
    cd malavyaraval.github.io
    ```
 
 2. Install dependencies
+
    ```bash
    npm install
    ```
@@ -68,6 +70,7 @@ The site uses Tailwind CSS for styling. Modify colors and styles directly in the
 ### Deployment Steps
 
 1. **Build the project**
+
    ```bash
    npm run build
    ```

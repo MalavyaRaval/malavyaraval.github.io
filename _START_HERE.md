@@ -7,6 +7,7 @@ A professional, **dark-mode portfolio website** fully personalized with your inf
 ### Build Summary
 
 ✅ **All Components Created**
+
 - Header.jsx - Navigation with responsive menu
 - Hero.jsx - Your introduction with CTAs
 - About.jsx - Your bio and GitHub image
@@ -16,6 +17,7 @@ A professional, **dark-mode portfolio website** fully personalized with your inf
 - Footer.jsx - Professional footer
 
 ✅ **Personalized Content**
+
 - Name: Malavya Raval
 - Title: Computer Science Graduate | Full-Stack Developer | AI/ML Enthusiast
 - Email: mraval@sfsu.edu
@@ -23,6 +25,7 @@ A professional, **dark-mode portfolio website** fully personalized with your inf
 - LinkedIn: https://www.linkedin.com/in/malavya-raval/
 
 ✅ **Featured Projects** (6 total)
+
 1. LSP - Language Server Protocol (JavaScript)
 2. SafeWalk - Real-time Safety Platform (JavaScript) - Hackathon Winner
 3. CareerBoost - Full-Stack Career Application (TypeScript)
@@ -31,6 +34,7 @@ A professional, **dark-mode portfolio website** fully personalized with your inf
 6. Classical ML Lab - Jupyter Notebook ML Experiments (Python)
 
 ✅ **Skills Organized by Category**
+
 - Languages: TypeScript, Python, Java, C++, JavaScript, SQL, C, Swift
 - Frontend: React, HTML/CSS, Tailwind, Responsive Design, Redux
 - Backend: Node.js, Express, REST APIs, PostgreSQL, MongoDB, GraphQL, Docker
@@ -39,12 +43,14 @@ A professional, **dark-mode portfolio website** fully personalized with your inf
 - Tools: Git, Vim, Linux, Figma, Slack, Trello, GitLab, Vercel, Photoshop
 
 ✅ **Achievements**
+
 - 500+ LeetCode Problems Solved
 - Hackathon Winner
 - 2+ Conference Papers Published
 - 100+ GitHub Contributions
 
 ✅ **Design**
+
 - Dark mode theme (gray-900 background, blue/cyan accents)
 - Fully responsive (mobile, tablet, desktop)
 - Professional CS grad aesthetic
@@ -54,6 +60,7 @@ A professional, **dark-mode portfolio website** fully personalized with your inf
 ## 📁 Project Files
 
 ### Components (src/components/)
+
 ```
 Header.jsx          - Fixed navigation header
 Hero.jsx            - Hero section with CTAs
@@ -65,6 +72,7 @@ Footer.jsx          - Professional footer
 ```
 
 ### Configuration Files
+
 ```
 package.json        - Dependencies & scripts
 vite.config.js      - Vite configuration for GitHub Pages
@@ -72,12 +80,14 @@ index.html          - HTML entry point
 ```
 
 ### Styling
+
 ```
 src/App.css         - Component-specific styles
 src/index.css       - Global styles with Tailwind
 ```
 
 ### Documentation
+
 ```
 README.md                   - Full project documentation
 QUICK_START.md              - Quick reference guide
@@ -90,6 +100,7 @@ THIS_FILE                   - Everything summarized
 ## 🚀 How to Deploy
 
 ### Option 1: Quick Deploy (Recommended)
+
 ```bash
 cd "C:\Users\malav\OneDrive_San Francisco State University\Desktop\production\Portfolio\malavyaraval.github.io"
 npm run build
@@ -97,6 +108,7 @@ npm run deploy
 ```
 
 ### Option 2: Manual Deploy
+
 ```bash
 npm run build
 git add dist -f
@@ -105,14 +117,17 @@ git push origin HEAD:gh-pages
 ```
 
 ### Result
+
 Your portfolio will be live at: **https://malavyaraval.github.io**
 
 ## 🧪 Local Testing
 
 To see your portfolio locally before deploying:
+
 ```bash
 npm run dev
 ```
+
 Visit: http://localhost:5173
 
 ## 📊 Build Statistics
@@ -142,6 +157,7 @@ Visit: http://localhost:5173
 ## 🎨 Design Highlights
 
 ### Color Scheme
+
 - **Background**: Dark gray (#111827)
 - **Cards**: Medium gray (#1F2937)
 - **Primary Accent**: Blue (#3B82F6)
@@ -149,11 +165,13 @@ Visit: http://localhost:5173
 - **Text**: Light gray (#F3F4F6)
 
 ### Responsive Breakpoints
+
 - **Mobile**: < 768px (single column)
 - **Tablet**: 768px - 1023px (2 columns)
 - **Desktop**: ≥ 1024px (3+ columns)
 
 ### Animations
+
 - Smooth scroll behavior
 - Button hover effects
 - Card lift animations
@@ -163,18 +181,22 @@ Visit: http://localhost:5173
 ## 📝 What to Do Next
 
 ### Immediate (Deploy)
+
 1. Test locally: `npm run dev`
 2. Build: `npm run build`
 3. Deploy: `npm run deploy`
 4. Verify: Visit https://malavyaraval.github.io
 
 ### Future Updates
+
 To update your portfolio:
+
 1. Edit the component files (src/components/)
 2. Run: `npm run build && npm run deploy`
 3. Changes go live automatically
 
 ### Customization Ideas
+
 - Add project images
 - Set up contact form backend (Formspree, EmailJS)
 - Add blog section
@@ -203,6 +225,7 @@ To update your portfolio:
 ## 📞 Support
 
 If you need help:
+
 1. Check DEPLOYMENT.md for deployment issues
 2. Check QUICK_START.md for quick reference
 3. Check DESIGN_GUIDE.md for visual customization
@@ -224,6 +247,7 @@ If you need help:
 ## 🏆 You're Ready!
 
 Your professional portfolio is:
+
 - ✅ Built
 - ✅ Tested
 - ✅ Personalized
@@ -231,6 +255,7 @@ Your professional portfolio is:
 - ✅ Ready to deploy
 
 ### Deploy Now:
+
 ```bash
 npm run deploy
 ```

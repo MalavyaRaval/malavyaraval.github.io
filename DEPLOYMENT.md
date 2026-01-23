@@ -6,11 +6,12 @@ Your Malavya Raval portfolio is ready to deploy! Follow this guide to get it liv
 
 ✅ Node.js installed  
 ✅ Your GitHub repository set up  
-✅ `gh-pages` already in your dependencies  
+✅ `gh-pages` already in your dependencies
 
 ## Step-by-Step Deployment
 
 ### Step 1: Build Your Portfolio
+
 ```bash
 npm run build
 ```
@@ -18,22 +19,26 @@ npm run build
 This creates a `dist` folder with all the optimized files ready for production.
 
 **Expected output:**
+
 ```
 ✓ 23 modules transformed
 ✓ built in 735ms
 ```
 
 ### Step 2: Deploy to GitHub Pages
+
 ```bash
 npm run deploy
 ```
 
 This command:
+
 - Builds your project
 - Creates/updates a `gh-pages` branch
 - Pushes everything to GitHub automatically
 
 **Expected output:**
+
 ```
 Published
 ```
@@ -68,6 +73,7 @@ npm run deploy
 ### Option B: Manual Deployment (If Option A doesn't work)
 
 1. Build the project:
+
    ```bash
    npm run build
    ```
@@ -93,16 +99,19 @@ Your site should now be accessible at `https://malavyaraval.github.io`
 ## Troubleshooting
 
 ### Site shows 404 error
+
 - Wait 1-2 minutes, GitHub needs time to process
 - Check that `gh-pages` branch exists in your repository
 - Verify GitHub Pages is enabled in Settings → Pages
 
 ### Site shows old content
+
 - Clear browser cache (Ctrl+Shift+Del or Cmd+Shift+Del)
 - Wait for GitHub Pages to rebuild (usually 1-2 minutes)
 - Force refresh (Ctrl+F5 or Cmd+Shift+R)
 
 ### Deploy command fails
+
 ```bash
 # Make sure all changes are committed
 git add .
@@ -113,7 +122,9 @@ npm run deploy
 ```
 
 ### Still have issues?
+
 1. Delete `dist` folder and `.gh-pages` cache:
+
    ```bash
    rm -rf dist
    rm -rf .gh-pages
@@ -128,12 +139,14 @@ npm run deploy
 ## Development vs Production
 
 **During Development:**
+
 ```bash
 npm run dev
 # Local testing at http://localhost:5173
 ```
 
 **For Production:**
+
 ```bash
 npm run build      # Create optimized build
 npm run deploy     # Deploy to GitHub Pages
@@ -142,6 +155,7 @@ npm run deploy     # Deploy to GitHub Pages
 ## Performance
 
 Your built site includes:
+
 - Optimized CSS: ~5.76 KB (gzipped)
 - Optimized JS: ~64.29 KB (gzipped)
 - Total: ~70 KB (gzipped)
@@ -174,7 +188,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
       - run: npm ci
       - run: npm run build
       - name: Deploy
@@ -189,6 +203,7 @@ Now every push to `main` will automatically deploy!
 ## Monitoring
 
 After deployment, monitor:
+
 - Google Search Console for indexing
 - Analytics to track visitors
 - Performance metrics in Lighthouse

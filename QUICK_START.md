@@ -5,6 +5,7 @@ Your portfolio is now fully personalized and ready to deploy! Here's everything 
 ### 🚀 What's New
 
 ✅ **Personalized Content**
+
 - Your name, bio, and achievements
 - 6 real projects from your GitHub
 - Your skills and tech stack
@@ -12,24 +13,30 @@ Your portfolio is now fully personalized and ready to deploy! Here's everything 
 - Professional dark mode design (CS grad aesthetic)
 
 ✅ **Dark Mode Theme**
+
 - Professional dark blue and gray palette
 - Gradient accents (blue/cyan)
 - Better readability and modern look
 - Optimized for extended viewing
 
 ### 1️⃣ Run Development Server Locally
+
 ```bash
 npm run dev
 ```
+
 Visit `http://localhost:5173` to see your portfolio with hot reload enabled.
 
 ### 2️⃣ Build for Production
+
 ```bash
 npm run build
 ```
+
 This creates a `dist` folder with optimized, production-ready files.
 
 ### 3️⃣ Deploy to GitHub Pages
+
 ```bash
 npm run deploy
 ```
@@ -39,20 +46,24 @@ Your portfolio will be live at: **`https://malavyaraval.github.io`**
 ### 📋 What's Already Updated
 
 ✅ **Header**
+
 - Logo changed to "MR" with gradient
 - Navigation links styled for dark mode
 
 ✅ **Hero Section**
+
 - Your name as headline
 - Your professional tagline
 - Your achievements highlighted
 
 ✅ **About Section**
+
 - Your GitHub profile image
 - Your complete bio from your README
 - Your background and achievements
 
 ✅ **Projects Section** (6 projects from your GitHub)
+
 1. LSP - Language Server Protocol
 2. SafeWalk - Real-time Safety Platform (Hackathon Winner)
 3. CareerBoost - Full-Stack Career App
@@ -61,17 +72,20 @@ Your portfolio will be live at: **`https://malavyaraval.github.io`**
 6. Classical ML Lab - Jupyter ML Experiments
 
 ✅ **Skills Section**
+
 - Organized by categories (Languages, Frontend, Backend, AI/ML, DevOps, Tools)
 - All your tech stack included
 - Achievement stats (500+ LeetCode, Hackathon Winner, Conference Papers, GitHub Contributions)
 
 ✅ **Contact Section**
+
 - Your email: mraval@sfsu.edu
 - Your LinkedIn profile
 - GitHub, LeetCode, and Google Scholar links
 - Contact form for inquiries
 
 ✅ **Footer**
+
 - Professional footer with quick links
 - All social media connections
 
@@ -92,6 +106,7 @@ Your portfolio will be live at: **`https://malavyaraval.github.io`**
 ### 🔧 If You Want to Customize Further
 
 Edit these files to make changes:
+
 - **Header text**: `src/components/Header.jsx` (line 10)
 - **Hero text**: `src/components/Hero.jsx`
 - **About text**: `src/components/About.jsx`
@@ -111,6 +126,7 @@ Edit these files to make changes:
 ### 📧 Contact Form Setup (Optional)
 
 The contact form currently shows an alert. To actually send emails, consider:
+
 - **Formspree**: https://formspree.io (free tier available)
 - **EmailJS**: https://www.emailjs.com
 - **Netlify Forms**: If deployed on Netlify
@@ -132,11 +148,13 @@ The contact form currently shows an alert. To actually send emails, consider:
 ### 🆘 Troubleshooting
 
 **Port 5173 already in use?**
+
 ```bash
 npm run dev -- --port 3000
 ```
 
 **Need to redeploy?**
+
 ```bash
 npm run build
 npm run deploy
@@ -155,4 +173,3 @@ Edit `src/components/Projects.jsx` and update the project objects with new detai
 ---
 
 **You're all set! Deploy with confidence. Your portfolio looks professional and is ready to impress!** 🚀
-

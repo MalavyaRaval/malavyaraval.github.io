@@ -249,7 +249,7 @@ export default function Home() {
               Malavya Raval
             </h1>
             <p className="text-xl text-gray-300 mb-2 w-full">
-              Computer Science Graduate | Full-Stack Developer | AI/ML Enthusiast
+              Computer Science Graduate | Full-Stack Developer | AI/ML Researcher
             </p>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed w-full text-center">
               Building practical, user-focused software and scalable systems.

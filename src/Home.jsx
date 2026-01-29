@@ -147,8 +147,8 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="fixed w-full top-0 bg-gray-900/95 backdrop-blur-md border-b border-gray-800 shadow-lg z-50">
-        <nav className="container mx-auto py-4 flex justify-between items-center">
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+        <nav className="bg-gray-900/80 backdrop-blur-xl border border-gray-700/60 shadow-2xl rounded-2xl px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             MR
           </div>
@@ -205,7 +205,7 @@ export default function Home() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-gray-800/95 border-t border-gray-700">
+          <div className="md:hidden mt-4 bg-gray-800/95 backdrop-blur-xl border border-gray-700 rounded-xl shadow-xl">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button
                 onClick={() => scrollToSection("about")}
@@ -237,7 +237,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-[600px] flex items-center justify-center relative overflow-hidden w-full">
+      <section className="pt-40 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-[600px] flex items-center justify-center relative overflow-hidden w-full">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-600/10 rounded-full blur-3xl"></div>
@@ -245,11 +245,12 @@ export default function Home() {
 
         <div className="container mx-auto relative z-10 flex flex-col items-center justify-center">
           <div className="text-center w-full">
-            <h1 className="text-6xl sm:text-7xl font-bold text-white mb-6 tracking-tight w-full">
+            <h1 className="text-6xl sm:text-7xl font-bold text-white mb-12 tracking-tight w-full">
               Malavya Raval
             </h1>
-            <p className="text-xl text-gray-300 mb-2 w-full">
-              Computer Science Graduate | Full-Stack Developer | AI/ML Researcher
+            <p className="text-xl text-gray-300 mb-8 w-full">
+              Computer Science Graduate | Full-Stack Developer | AI/ML
+              Enthusiast
             </p>
             <p className="text-lg text-gray-400 mb-8 leading-relaxed w-full text-center">
               Building practical, user-focused software and scalable systems.
@@ -283,7 +284,10 @@ export default function Home() {
       </section>
 
       {/* About */}
-      <section id="about" className="py-20 bg-gray-800/50 backdrop-blur-sm w-full">
+      <section
+        id="about"
+        className="py-20 bg-gray-800/50 backdrop-blur-sm w-full"
+      >
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             About Me
@@ -305,14 +309,14 @@ export default function Home() {
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                 My work spans full-stack development, AI/ML applications, and
                 system design. I've built and presented AI-powered tools at top
-                conferences like AAAI and FQAS, and recently won a hackathon for a
-                real-time safety platform.
+                conferences like AAAI and FQAS, and recently won a hackathon for
+                a real-time safety platform.
               </p>
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                 I actively work with TypeScript, Python, Java, C++, SQL, and
-                React. I've solved over 500 LeetCode problems to strengthen my DSA
-                foundation, and I'm always looking to learn and build things that
-                matter.
+                React. I've solved over 500 LeetCode problems to strengthen my
+                DSA foundation, and I'm always looking to learn and build things
+                that matter.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
                 Currently seeking opportunities in full-stack development, data
@@ -340,7 +344,7 @@ export default function Home() {
                 aria-label={`Open ${project.title} on GitHub`}
                 className="group bg-gradient-to-br from-gray-900/60 to-gray-800/40 rounded-xl shadow-lg overflow-hidden transition transform will-change-transform hover:scale-105 hover:shadow-2xl border border-gray-700/60 hover:border-blue-400/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/30"
               >
-                <div className="p-8 min-h-[240px] flex flex-col justify-between">
+                <div className="p-8 min-h-[200px] flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md">
@@ -356,29 +360,29 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <p className="text-gray-300 mb-6 text-base leading-relaxed">
+                    <p className="text-gray-300 mb-4 text-base leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-gray-700/30 flex items-center justify-between">
-                    <div className="flex gap-3 flex-wrap">
+                  <div className="pt-6 border-t border-gray-700/30 flex items-center justify-between gap-4">
+                    <div className="flex gap-2 flex-wrap">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="bg-transparent text-blue-300 px-3 py-1 rounded-full text-sm font-medium border border-blue-500/20 transition-transform transform hover:scale-105 hover:bg-blue-600/10"
+                          className="bg-transparent text-blue-300 px-3 py-2 rounded-full text-sm font-medium border border-blue-500/20 transition-transform transform hover:scale-105 hover:bg-blue-600/10"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center text-blue-400 font-semibold text-sm hover:text-cyan-300 transition group-hover:underline">
+                    <div className="flex items-center text-blue-400 font-semibold text-base hover:text-cyan-300 transition group-hover:underline whitespace-nowrap">
                       <span className="flex items-center gap-2">
                         <span>View on GitHub</span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="w-4 h-4 ml-1 transition-transform transform group-hover:translate-x-1"
+                          className="w-5 h-5 ml-1 transition-transform transform group-hover:translate-x-1"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -401,7 +405,10 @@ export default function Home() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="py-20 bg-gray-800/50 backdrop-blur-sm w-full">
+      <section
+        id="skills"
+        className="py-32 bg-gray-800/50 backdrop-blur-sm w-full"
+      >
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             Skills & Expertise
@@ -429,12 +436,14 @@ export default function Home() {
 
           {/* Achievements */}
           <div className="mt-20 pt-16 border-t border-gray-700 w-full">
-            <h3 className="text-3xl font-bold text-white mb-16 text-center w-full">
+            <h3 className="text-3xl font-bold text-white mb-12 text-center w-full">
               Achievements
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
               <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-10 text-center border border-blue-500/30 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-blue-300 mb-4">500+</div>
+                <div className="text-5xl font-bold text-blue-300 mb-4">
+                  500+
+                </div>
                 <p className="text-gray-200 text-lg font-medium">
                   LeetCode Problems
                 </p>
@@ -446,13 +455,17 @@ export default function Home() {
                 </p>
               </div>
               <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-10 text-center border border-purple-500/30 hover:border-purple-400/60 hover:shadow-lg hover:shadow-purple-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-purple-300 mb-4">2+</div>
+                <div className="text-5xl font-bold text-purple-300 mb-4">
+                  2+
+                </div>
                 <p className="text-gray-200 text-lg font-medium">
                   Conference Papers
                 </p>
               </div>
               <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-10 text-center border border-green-500/30 hover:border-green-400/60 hover:shadow-lg hover:shadow-green-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-green-300 mb-4">100+</div>
+                <div className="text-5xl font-bold text-green-300 mb-4">
+                  100+
+                </div>
                 <p className="text-gray-200 text-lg font-medium">
                   GitHub Contributions
                 </p>
@@ -465,7 +478,7 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="py-20 bg-gray-900/50 w-full">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-16 text-center w-full">
+          <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             Let's Connect
           </h2>
 
@@ -477,13 +490,15 @@ export default function Home() {
                 full-stack development
               </span>
               ,{" "}
-              <span className="text-blue-400 font-medium">data engineering</span>,{" "}
-              <span className="text-blue-400 font-medium">AI/ML</span>, or{" "}
+              <span className="text-blue-400 font-medium">
+                data engineering
+              </span>
+              , <span className="text-blue-400 font-medium">AI/ML</span>, or{" "}
               <span className="text-blue-400 font-medium">
                 performance-critical systems
               </span>
-              . Whether you have an idea, want to collaborate, or just want to say
-              hi, feel free to reach out!
+              . Whether you have an idea, want to collaborate, or just want to
+              say hi, feel free to reach out!
             </p>
           </div>
         </div>
@@ -561,7 +576,10 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#projects" className="hover:text-blue-400 transition">
+                  <a
+                    href="#projects"
+                    className="hover:text-blue-400 transition"
+                  >
                     Projects
                   </a>
                 </li>

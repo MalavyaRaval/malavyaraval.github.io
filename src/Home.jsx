@@ -148,7 +148,7 @@ export default function Home() {
     <>
       {/* Header */}
       <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-        <nav className="bg-gray-900/80 backdrop-blur-xl border border-gray-700/60 shadow-2xl rounded-2xl px-6 py-4 flex justify-between items-center">
+        <nav className="bg-transparent rounded-2xl px-6 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             MR
           </div>

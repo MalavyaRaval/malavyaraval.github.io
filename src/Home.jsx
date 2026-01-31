@@ -346,7 +346,7 @@ export default function Home() {
               >
                 <div className="p-8 min-h-[200px] flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-8 mb-8">
                       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md">
                         {getInitials(project.title)}
                       </div>

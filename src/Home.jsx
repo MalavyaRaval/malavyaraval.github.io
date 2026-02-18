@@ -464,7 +464,7 @@ export default function Home() {
               </div>
               <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-10 text-center border border-green-500/30 hover:border-green-400/60 hover:shadow-lg hover:shadow-green-500/20 transition duration-300 hover:scale-105">
                 <div className="text-5xl font-bold text-green-300 mb-4">
-                  100+
+                  1600+
                 </div>
                 <p className="text-gray-200 text-lg font-medium">
                   GitHub Contributions

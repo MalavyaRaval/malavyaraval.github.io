@@ -147,8 +147,8 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-        <nav className="bg-gray-900/60 backdrop-blur-md rounded-2xl px-8 py-5 flex justify-between items-center border border-gray-800/30 shadow-sm">
+      <header className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[88%] max-w-7xl">
+        <nav className="bg-gray-900/60 backdrop-blur-md rounded-2xl px-10 py-6 flex justify-between items-center border border-gray-800/30 shadow-sm">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             MR
           </div>
@@ -157,25 +157,25 @@ export default function Home() {
           <div className="hidden md:flex gap-10 items-center">
             <button
               onClick={() => scrollToSection("about")}
-              className="text-gray-300 hover:text-blue-400 transition font-medium"
+              className="text-gray-300 hover:text-blue-400 transition font-medium px-4 py-2 rounded"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className="text-gray-300 hover:text-blue-400 transition font-medium"
+              className="text-gray-300 hover:text-blue-400 transition font-medium px-4 py-2 rounded"
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection("skills")}
-              className="text-gray-300 hover:text-blue-400 transition font-medium"
+              className="text-gray-300 hover:text-blue-400 transition font-medium px-4 py-2 rounded"
             >
               Skills
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-gray-300 hover:text-blue-400 transition font-medium"
+              className="text-gray-300 hover:text-blue-400 transition font-medium px-4 py-2 rounded"
             >
               Contact
             </button>
@@ -331,7 +331,7 @@ export default function Home() {
       {/* Projects */}
       <section id="projects" className="py-28 bg-gray-900/80 w-full">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
+          <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 justify-center w-full">
@@ -410,7 +410,7 @@ export default function Home() {
         className="py-40 bg-gray-800/50 backdrop-blur-sm w-full"
       >
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
+          <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
             Skills & Expertise
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
@@ -436,7 +436,7 @@ export default function Home() {
 
           {/* Achievements */}
           <div className="mt-24 pt-20 border-t border-gray-700 w-full">
-            <h3 className="text-3xl font-bold text-white mb-12 text-center w-full">
+            <h3 className="text-3xl font-bold text-white my-16 text-center w-full">
               Achievements
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 w-full">
@@ -478,7 +478,7 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="py-28 bg-gray-900/50 w-full">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
+          <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
             Let's Connect
           </h2>
 

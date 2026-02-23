@@ -329,12 +329,12 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-20 bg-gray-900/80 w-full">
+      <section id="projects" className="py-28 bg-gray-900/80 w-full">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             Featured Projects
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 justify-center w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 justify-center w-full">
             {projects.map((project) => (
               <a
                 key={project.id}
@@ -344,7 +344,7 @@ export default function Home() {
                 aria-label={`Open ${project.title} on GitHub`}
                 className="group bg-gradient-to-br from-gray-900/60 to-gray-800/40 rounded-xl shadow-lg overflow-hidden transition transform will-change-transform hover:scale-105 hover:shadow-2xl border border-gray-700/60 hover:border-blue-400/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/30"
               >
-                <div className="p-8 min-h-[200px] flex flex-col justify-between">
+                <div className="p-12 min-h-[260px] flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-8 mb-8">
                       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md">
@@ -407,17 +407,17 @@ export default function Home() {
       {/* Skills */}
       <section
         id="skills"
-        className="py-32 bg-gray-800/50 backdrop-blur-sm w-full"
+        className="py-40 bg-gray-800/50 backdrop-blur-sm w-full"
       >
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             Skills & Expertise
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
             {skillCategories.map((category) => (
               <div
                 key={category.category}
-                className="bg-gradient-to-br from-gray-700/50 to-gray-800/50 rounded-lg p-6 border border-gray-600/50 hover:border-blue-500/50 transition"
+                className="bg-gradient-to-br from-gray-700/50 to-gray-800/50 rounded-xl p-8 border border-gray-600/50 hover:border-blue-500/50 transition"
               >
                 <h3 className="text-xl font-bold text-blue-400 mb-4">
                   {category.category}
@@ -435,37 +435,37 @@ export default function Home() {
           </div>
 
           {/* Achievements */}
-          <div className="mt-20 pt-16 border-t border-gray-700 w-full">
+          <div className="mt-24 pt-20 border-t border-gray-700 w-full">
             <h3 className="text-3xl font-bold text-white mb-12 text-center w-full">
               Achievements
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-              <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-10 text-center border border-blue-500/30 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-blue-300 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 w-full">
+              <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-12 min-h-[220px] text-center border border-blue-500/30 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-105">
+                <div className="text-6xl font-bold text-blue-300 mb-6">
                   500+
                 </div>
                 <p className="text-gray-200 text-lg font-medium">
                   LeetCode Problems
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 rounded-xl p-10 text-center border border-cyan-500/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-cyan-300 mb-4">🏆</div>
+              <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 rounded-xl p-12 min-h-[220px] text-center border border-cyan-500/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 transition duration-300 hover:scale-105">
+                <div className="text-6xl font-bold text-cyan-300 mb-6">🏆</div>
                 <p className="text-gray-200 text-lg font-medium">
                   Hackathon Winner
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-10 text-center border border-purple-500/30 hover:border-purple-400/60 hover:shadow-lg hover:shadow-purple-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-purple-300 mb-4">
+              <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-12 min-h-[220px] text-center border border-purple-500/30 hover:border-purple-400/60 hover:shadow-lg hover:shadow-purple-500/20 transition duration-300 hover:scale-105">
+                <div className="text-6xl font-bold text-purple-300 mb-6">
                   2+
                 </div>
                 <p className="text-gray-200 text-lg font-medium">
                   Conference Papers
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-10 text-center border border-green-500/30 hover:border-green-400/60 hover:shadow-lg hover:shadow-green-500/20 transition duration-300 hover:scale-105">
-                <div className="text-5xl font-bold text-green-300 mb-4">
-                    1,600
-                  </div>
+              <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-12 min-h-[220px] text-center border border-green-500/30 hover:border-green-400/60 hover:shadow-lg hover:shadow-green-500/20 transition duration-300 hover:scale-105">
+                <div className="text-6xl font-bold text-green-300 mb-6">
+                  1,600
+                </div>
                 <p className="text-gray-200 text-lg font-medium">
                   GitHub Contributions
                 </p>

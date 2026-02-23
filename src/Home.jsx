@@ -331,7 +331,7 @@ export default function Home() {
       {/* Projects */}
       <section id="projects" className="py-28 bg-gray-900/80 w-full">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
+          <h2 className="text-4xl font-bold text-white mt-16 mb-24 text-center w-full">
             Featured Projects
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 justify-center w-full">

@@ -148,7 +148,7 @@ export default function Home() {
     <>
       {/* Header */}
       <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-        <nav className="bg-transparent rounded-2xl px-6 py-4 flex justify-between items-center">
+        <nav className="bg-gray-900/60 backdrop-blur-md rounded-2xl px-6 py-4 flex justify-between items-center border border-gray-800/30 shadow-sm">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             MR
           </div>
@@ -205,7 +205,7 @@ export default function Home() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 bg-gray-800/95 backdrop-blur-xl border border-gray-700 rounded-xl shadow-xl">
+          <div className="md:hidden mt-4 bg-gray-900/65 backdrop-blur-md border border-gray-700/40 rounded-xl shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button
                 onClick={() => scrollToSection("about")}
@@ -440,43 +440,43 @@ export default function Home() {
               Achievements
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 w-full">
-              <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-12 min-h-[220px] text-center border border-blue-500/30 hover:border-blue-400/60 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300 hover:scale-105">
-                <div className="text-6xl font-bold text-blue-300 mb-6">
-                  500+
+                <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-8 min-h-[110px] text-center border border-blue-500/30 hover:border-blue-400/60 hover:shadow-md hover:shadow-blue-500/10 transition duration-200">
+                  <div className="text-4xl font-bold text-blue-300 mb-3">
+                    500+
+                  </div>
+                  <p className="text-gray-200 text-base font-medium">
+                    LeetCode Problems
+                  </p>
                 </div>
-                <p className="text-gray-200 text-lg font-medium">
-                  LeetCode Problems
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 rounded-xl p-12 min-h-[220px] text-center border border-cyan-500/30 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-500/20 transition duration-300 hover:scale-105">
-                <div className="text-6xl font-bold text-cyan-300 mb-6">🏆</div>
-                <p className="text-gray-200 text-lg font-medium">
-                  Hackathon Winner
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-12 min-h-[220px] text-center border border-purple-500/30 hover:border-purple-400/60 hover:shadow-lg hover:shadow-purple-500/20 transition duration-300 hover:scale-105">
-                <div className="text-6xl font-bold text-purple-300 mb-6">
-                  2+
+                <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 rounded-xl p-8 min-h-[110px] text-center border border-cyan-500/30 hover:border-cyan-400/60 hover:shadow-md hover:shadow-cyan-500/10 transition duration-200">
+                  <div className="text-4xl font-bold text-cyan-300 mb-3">🏆</div>
+                  <p className="text-gray-200 text-base font-medium">
+                    Hackathon Winner
+                  </p>
                 </div>
-                <p className="text-gray-200 text-lg font-medium">
-                  Conference Papers
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-12 min-h-[220px] text-center border border-green-500/30 hover:border-green-400/60 hover:shadow-lg hover:shadow-green-500/20 transition duration-300 hover:scale-105">
-                <div className="text-6xl font-bold text-green-300 mb-6">
-                  1,600
+                <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-xl p-8 min-h-[110px] text-center border border-purple-500/30 hover:border-purple-400/60 hover:shadow-md hover:shadow-purple-500/10 transition duration-200">
+                  <div className="text-4xl font-bold text-purple-300 mb-3">
+                    2+
+                  </div>
+                  <p className="text-gray-200 text-base font-medium">
+                    Conference Papers
+                  </p>
                 </div>
-                <p className="text-gray-200 text-lg font-medium">
-                  GitHub Contributions
-                </p>
+                <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 rounded-xl p-8 min-h-[110px] text-center border border-green-500/30 hover:border-green-400/60 hover:shadow-md hover:shadow-green-500/10 transition duration-200">
+                  <div className="text-4xl font-bold text-green-300 mb-3">
+                    1,600
+                  </div>
+                  <p className="text-gray-200 text-base font-medium">
+                    GitHub Contributions
+                  </p>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-20 bg-gray-900/50 w-full">
+      <section id="contact" className="py-28 bg-gray-900/50 w-full">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             Let's Connect

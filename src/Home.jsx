@@ -147,8 +147,8 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[88%] max-w-7xl">
-        <nav className="bg-gray-900/60 backdrop-blur-md rounded-2xl px-10 py-6 flex justify-between items-center border border-gray-800/30 shadow-sm">
+      <header className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-8xl">
+        <nav className="bg-gray-900/65 backdrop-blur-lg rounded-2xl px-14 py-6 flex justify-between items-center border border-gray-800/30 shadow-sm">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             MR
           </div>

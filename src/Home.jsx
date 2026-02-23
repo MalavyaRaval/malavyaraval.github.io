@@ -147,14 +147,14 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-        <nav className="bg-gray-900/60 backdrop-blur-md rounded-2xl px-6 py-4 flex justify-between items-center border border-gray-800/30 shadow-sm">
+      <header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+        <nav className="bg-gray-900/60 backdrop-blur-md rounded-2xl px-8 py-5 flex justify-between items-center border border-gray-800/30 shadow-sm">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
             MR
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex gap-10 items-center">
             <button
               onClick={() => scrollToSection("about")}
               className="text-gray-300 hover:text-blue-400 transition font-medium"

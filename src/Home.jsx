@@ -286,8 +286,11 @@ export default function Home() {
       {/* About */}
       <section
         id="about"
-        className="py-20 bg-gray-800/50 backdrop-blur-sm w-full"
+        className="py-32 bg-gray-800/50 backdrop-blur-sm w-full"
       >
+        <div className="w-full" aria-hidden>
+          <div className="mx-auto h-16"></div>
+        </div>
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
             About Me
@@ -328,13 +331,20 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="w-full" aria-hidden>
+        <div className="mx-auto h-16"></div>
+      </div>
+
       {/* Projects */}
-      <section id="projects" className="py-28 bg-gray-900/80 w-full">
+      <section id="projects" className="py-44 bg-gray-900/80 w-full">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white mt-16 mb-24 text-center w-full">
+          <h2 className="text-4xl font-bold text-white mt-16 mb-32 text-center w-full">
             Featured Projects
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 justify-center w-full">
+          <div className="w-full" aria-hidden>
+            <div className="mx-auto h-6"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-4 justify-center w-full">
             {projects.map((project) => (
               <a
                 key={project.id}
@@ -344,7 +354,7 @@ export default function Home() {
                 aria-label={`Open ${project.title} on GitHub`}
                 className="group bg-gradient-to-br from-gray-900/60 to-gray-800/40 rounded-xl shadow-lg overflow-hidden transition transform will-change-transform hover:scale-105 hover:shadow-2xl border border-gray-700/60 hover:border-blue-400/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/30"
               >
-                <div className="p-12 min-h-[260px] flex flex-col justify-between">
+                <div className="p-6 min-h-[200px] flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-8 mb-8">
                       <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white font-extrabold text-lg shadow-md">
@@ -404,16 +414,23 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="w-full" aria-hidden>
+        <div className="mx-auto h-16"></div>
+      </div>
+
       {/* Skills */}
       <section
         id="skills"
-        className="py-40 bg-gray-800/50 backdrop-blur-sm w-full"
+        className="py-48 bg-gray-800/50 backdrop-blur-sm w-full"
       >
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
             Skills & Expertise
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
+          <div className="w-full" aria-hidden>
+            <div className="mx-auto h-8"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-4 w-full">
             {skillCategories.map((category) => (
               <div
                 key={category.category}
@@ -435,10 +452,16 @@ export default function Home() {
           </div>
 
           {/* Achievements */}
-          <div className="mt-24 pt-20 border-t border-gray-700 w-full">
+          <div className="mt-32 pt-24 border-t border-gray-700 w-full">
+            <div className="w-full" aria-hidden>
+              <div className="mx-auto h-12"></div>
+            </div>
             <h3 className="text-3xl font-bold text-white my-16 text-center w-full">
               Achievements
             </h3>
+            <div className="w-full" aria-hidden>
+              <div className="mx-auto h-10"></div>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 w-full">
                 <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-xl p-8 min-h-[110px] text-center border border-blue-500/30 hover:border-blue-400/60 hover:shadow-md hover:shadow-blue-500/10 transition duration-200">
                   <div className="text-4xl font-bold text-blue-300 mb-3">
@@ -475,12 +498,23 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="w-full" aria-hidden>
+        <div className="mx-auto h-16"></div>
+      </div>
+
       {/* Contact */}
-      <section id="contact" className="py-28 bg-gray-900/50 w-full">
+      <section id="contact" className="py-36 bg-gray-900/50 w-full">
+        <div className="w-full" aria-hidden>
+          <div className="mx-auto h-14"></div>
+        </div>
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
             Let's Connect
           </h2>
+
+          <div className="w-full" aria-hidden>
+            <div className="mx-auto h-6"></div>
+          </div>
 
           <div className="flex justify-center w-full">
             <p className="text-gray-300 leading-relaxed text-lg text-center max-w-2xl">
@@ -503,6 +537,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="w-full" aria-hidden>
+        <div className="mx-auto h-16"></div>
+      </div>
 
       {/* Footer */}
       <footer className="bg-gray-900 border-t border-gray-800 text-gray-300 py-12 w-full">

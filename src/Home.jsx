@@ -264,7 +264,7 @@ export default function Home() {
                     .getElementById("projects")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-3 rounded-lg font-semibold transition transform hover:scale-105"
+                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-32 py-6 rounded-lg font-semibold transition transform hover:scale-105"
               >
                 View My Work
               </button>
@@ -274,7 +274,7 @@ export default function Home() {
                     .getElementById("contact")
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
-                className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400/10 px-8 py-3 rounded-lg font-semibold transition"
+                className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400/10 px-32 py-6 rounded-lg font-semibold transition"
               >
                 Let's Connect
               </button>

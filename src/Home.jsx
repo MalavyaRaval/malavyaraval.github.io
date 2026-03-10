@@ -73,6 +73,7 @@ export default function Home() {
         "C",
         "Swift",
       ],
+      icon: "💻"
     },
     {
       category: "Frontend",
@@ -83,6 +84,7 @@ export default function Home() {
         "Responsive Design",
         "Redux",
       ],
+      icon: "🎨"
     },
     {
       category: "Backend & Databases",
@@ -95,6 +97,7 @@ export default function Home() {
         "GraphQL",
         "Docker",
       ],
+      icon: "⚙️"
     },
     {
       category: "AI/ML & Data",
@@ -105,6 +108,7 @@ export default function Home() {
         "Classical ML",
         "Image Processing",
       ],
+      icon: "🧠"
     },
     {
       category: "DevOps & Cloud",
@@ -117,6 +121,7 @@ export default function Home() {
         "GitHub",
         "CI/CD",
       ],
+      icon: "☁️"
     },
     {
       category: "Tools & Platforms",
@@ -131,6 +136,7 @@ export default function Home() {
         "Vercel",
         "Photoshop",
       ],
+      icon: "🛠️"
     },
   ];
 
@@ -434,15 +440,18 @@ export default function Home() {
             {skillCategories.map((category) => (
               <div
                 key={category.category}
-                className="bg-gradient-to-br from-gray-700/50 to-gray-800/50 rounded-xl p-8 border border-gray-600/50 hover:border-blue-500/50 transition"
+                className="bg-gradient-to-br from-gray-700/50 to-gray-800/50 rounded-xl p-8 border border-gray-600/50 hover:border-blue-500/50 transition group"
               >
-                <h3 className="text-xl font-bold text-blue-400 mb-4">
-                  {category.category}
-                </h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl">{category.icon}</span>
+                  <h3 className="text-xl font-bold text-blue-400 group-hover:text-cyan-400 transition-colors">
+                    {category.category}
+                  </h3>
+                </div>
                 <ul className="space-y-2">
                   {category.skills.map((skill) => (
                     <li key={skill} className="text-gray-300 flex items-center">
-                      <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3"></span>
+                      <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 group-hover:scale-125 transition-transform"></span>
                       {skill}
                     </li>
                   ))}

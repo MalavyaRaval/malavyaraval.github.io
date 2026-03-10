@@ -301,7 +301,7 @@ export default function Home() {
       >
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-20 text-center w-full tracking-tight">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Me</span>
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Me (Updated Now)</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>

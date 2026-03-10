@@ -258,9 +258,13 @@ export default function Home() {
             <p className="text-2xl md:text-3xl text-gray-300 mb-6 w-full font-light tracking-wide">
               Full-Stack Developer <span className="text-blue-400">•</span> AI/ML Enthusiast <span className="text-blue-400">•</span> Problem Solver
             </p>
-            <p className="text-lg text-gray-400 mb-12 w-full leading-relaxed max-w-3xl mx-auto">
-              Building practical, user-focused software and scalable systems. <span className="text-blue-300 font-medium">Published AI research 🔬</span> • <span className="text-blue-300 font-medium">Hackathon winner 🏆</span> • <span className="text-blue-300 font-medium">500+ LeetCode problems solved 💪</span>
-            </p>
+            <div className="flex justify-center w-full">
+              <p className="text-base sm:text-lg text-gray-400 mb-12 leading-relaxed max-w-full sm:max-w-4xl px-2 text-center">
+                Building practical, user-focused software and scalable systems.
+                <br className="hidden sm:block" />
+                <span className="text-blue-300 font-medium">Published AI research 🔬</span> • <span className="text-blue-300 font-medium">Hackathon winner 🏆</span> • <span className="text-blue-300 font-medium">500+ LeetCode problems solved 💪</span>
+              </p>
+            </div>
             <div className="flex gap-4 justify-center flex-wrap w-full">
               <button
                 onClick={() =>

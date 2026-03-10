@@ -292,13 +292,10 @@ export default function Home() {
       {/* About */}
       <section
         id="about"
-        className="py-32 bg-gray-800/50 backdrop-blur-sm w-full"
+        className="py-16 bg-gray-800/50 backdrop-blur-sm w-full"
       >
-        <div className="w-full" aria-hidden>
-          <div className="mx-auto h-16"></div>
-        </div>
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-12 text-center w-full">
+          <h2 className="text-4xl font-bold text-white mb-20 text-center w-full">
             About Me
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">

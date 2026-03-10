@@ -508,16 +508,16 @@ export default function Home() {
       </section>
 
       <div className="w-full" aria-hidden>
-        <div className="mx-auto h-16"></div>
+        <div className="mx-auto h-6"></div>
       </div>
 
       {/* Contact */}
-      <section id="contact" className="py-36 bg-gray-900/50 w-full">
+      <section id="contact" className="py-20 bg-gray-900/50 w-full">
         <div className="w-full" aria-hidden>
-          <div className="mx-auto h-14"></div>
+          <div className="mx-auto h-6"></div>
         </div>
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-white my-16 text-center w-full">
+          <h2 className="text-4xl font-bold text-white my-8 text-center w-full">
             Let's Connect
           </h2>
 

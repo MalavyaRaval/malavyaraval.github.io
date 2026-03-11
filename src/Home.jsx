@@ -456,7 +456,7 @@ export default function Home() {
                     {category.category}
                   </h3>
                 </div>
-                <ul className="space-y-3 relative z-10">
+                <ul className="space-y-3 relative z-10 flex flex-col items-start pl-10">
                   {category.skills.map((skill) => (
                     <li key={skill} className="text-gray-300 flex items-center text-sm hover:text-gray-200 transition-colors duration-200">
                       <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
@@ -484,7 +484,7 @@ export default function Home() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
                   </div>
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     <div className="text-4xl font-bold text-blue-300 mb-3 group-hover:text-blue-200 transition-colors duration-300">
                       500+
                     </div>
@@ -497,7 +497,7 @@ export default function Home() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/20 to-transparent"></div>
                   </div>
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     <div className="text-4xl font-bold text-yellow-300 mb-3 group-hover:text-yellow-200 transition-colors duration-300">🏆</div>
                     <p className="text-gray-200 text-sm font-semibold">
                       Hackathon Winner
@@ -508,7 +508,7 @@ export default function Home() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-transparent"></div>
                   </div>
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     <div className="text-4xl font-bold text-purple-300 mb-3 group-hover:text-purple-200 transition-colors duration-300">
                       2+
                     </div>
@@ -521,7 +521,7 @@ export default function Home() {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-br from-green-600/20 to-transparent"></div>
                   </div>
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     <div className="text-4xl font-bold text-green-300 mb-3 group-hover:text-green-200 transition-colors duration-300">
                       1,600
                     </div>

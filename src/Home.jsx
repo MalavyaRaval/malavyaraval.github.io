@@ -450,15 +450,15 @@ export default function Home() {
                   <div className="absolute top-2 right-2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
                 </div>
                 
-                <div className="relative z-10 flex items-center gap-3 mb-6">
-                  <span className="text-3xl transform group-hover:scale-125 transition-transform duration-300">{category.icon}</span>
-                  <h3 className="text-lg font-bold text-blue-300 group-hover:text-cyan-300 transition-colors duration-300">
+                <div className="relative z-10 flex items-center gap-4 mb-6 ml-2">
+                  <span className="text-4xl transform group-hover:scale-125 transition-transform duration-300">{category.icon}</span>
+                  <h3 className="text-xl font-bold text-blue-300 group-hover:text-cyan-300 transition-colors duration-300">
                     {category.category}
                   </h3>
                 </div>
-                <ul className="space-y-3 relative z-10 flex flex-col items-start pl-10">
+                <ul className="space-y-3 relative z-10 flex flex-col items-start pl-14">
                   {category.skills.map((skill) => (
-                    <li key={skill} className="text-gray-300 flex items-center text-sm hover:text-gray-200 transition-colors duration-200">
+                    <li key={skill} className="text-gray-300 flex items-center text-base hover:text-gray-200 transition-colors duration-200">
                       <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
                       {skill}
                     </li>

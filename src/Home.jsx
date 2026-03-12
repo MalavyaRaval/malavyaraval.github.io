@@ -353,7 +353,8 @@ export default function Home() {
           <div className="w-full" aria-hidden>
             <div className="mx-auto h-6"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-4 justify-center w-full">
+          <div className="px-4 md:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-4 max-w-6xl mx-auto">
             {projects.map((project) => (
               <a
                 key={project.id}
@@ -441,8 +442,8 @@ export default function Home() {
           <div className="w-full" aria-hidden>
             <div className="mx-auto h-8"></div>
           </div>
-          <div className="px-4 md:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 max-w-6xl mx-auto">
+          <div className="flex justify-center w-full px-4 md:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 max-w-6xl w-full">
               {skillCategories.map((category) => (
                 <motion.div
                   key={category.category}
@@ -462,7 +463,7 @@ export default function Home() {
                       {category.category}
                     </h3>
                   </div>
-                  <ul className="space-y-3 relative z-10 flex flex-col items-center">
+                  <ul className="space-y-3 relative z-10 mx-auto w-fit">
                     {category.skills.map((skill) => (
                       <li key={skill} className="text-gray-300 flex items-center text-base hover:text-gray-200 transition-colors duration-200">
                         <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>

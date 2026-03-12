@@ -251,7 +251,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-purple-600/10 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="container mx-auto relative z-10 flex flex-col items-center justify-center px-4">
+        <div className="container relative z-10 flex flex-col items-center justify-center px-4">
           <div className="text-center max-w-4xl">
             <h1 className="text-7xl sm:text-8xl font-bold text-white mb-6 tracking-tighter leading-tight">
               Malavya <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 animate-pulse">Raval</span>

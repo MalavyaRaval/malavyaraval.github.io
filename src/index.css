@@ -4,14 +4,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* DEBUG: UNCOMMENT TO SEE OVERFLOWING ELEMENTS */
+  /* outline: 1px solid red !important; */
 }
 
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow-x: hidden; /* Standard approach to prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 body {
@@ -31,4 +32,12 @@ html {
 /* Ensure no elements expand beyond viewport width */
 *, *:before, *:after {
   box-sizing: border-box;
+}
+
+/* Force container to be contained */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

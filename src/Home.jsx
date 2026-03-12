@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -440,32 +441,38 @@ export default function Home() {
           <div className="w-full" aria-hidden>
             <div className="mx-auto h-8"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-4 w-full">
-            {skillCategories.map((category) => (
-              <div
-                key={category.category}
-                className="group relative bg-gradient-to-br from-gray-700/40 to-gray-800/30 rounded-2xl p-8 border border-gray-600/40 hover:border-blue-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 backdrop-blur-sm hover:bg-gradient-to-br hover:from-gray-700/60 hover:to-gray-800/50"
-              >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                  <div className="absolute top-2 right-2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
-                </div>
-                
-                <div className="relative z-10 flex items-center gap-4 mb-6 ml-2">
-                  <span className="text-4xl transform group-hover:scale-125 transition-transform duration-300">{category.icon}</span>
-                  <h3 className="text-xl font-bold text-blue-300 group-hover:text-cyan-300 transition-colors duration-300">
-                    {category.category}
-                  </h3>
-                </div>
-                <ul className="space-y-3 relative z-10 flex flex-col items-start pl-14">
-                  {category.skills.map((skill) => (
-                    <li key={skill} className="text-gray-300 flex items-center text-base hover:text-gray-200 transition-colors duration-200">
-                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="px-4 md:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 max-w-6xl mx-auto">
+              {skillCategories.map((category) => (
+                <motion.div
+                  key={category.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02, rotate: 0 }}
+                  className="group relative bg-gradient-to-br from-gray-700/40 to-gray-800/30 rounded-2xl p-8 border border-gray-600/40 hover:border-blue-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 backdrop-blur-sm hover:bg-gradient-to-br hover:from-gray-700/60 hover:to-gray-800/50"
+                >
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute top-2 right-2 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                  </div>
+                  
+                  <div className="relative z-10 flex items-center gap-4 mb-6 ml-2">
+                    <span className="text-4xl transform group-hover:scale-125 transition-transform duration-300">{category.icon}</span>
+                    <h3 className="text-xl font-bold text-blue-300 group-hover:text-cyan-300 transition-colors duration-300">
+                      {category.category}
+                    </h3>
+                  </div>
+                  <ul className="space-y-3 relative z-10 flex flex-col items-center">
+                    {category.skills.map((skill) => (
+                      <li key={skill} className="text-gray-300 flex items-center text-base hover:text-gray-200 transition-colors duration-200">
+                        <span className="w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"></span>
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Achievements */}

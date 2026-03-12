@@ -154,7 +154,7 @@ export default function Home() {
   return (
     <>
       {/* Header */}
-      <header className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-8xl">
+      <header className="fixed top-10 left-1/2 -translate-x-1/2 z-50 w-[96%] max-w-[1200px]">
         <nav className="bg-gray-950/70 backdrop-blur-xl rounded-2xl px-8 md:px-16 py-4 flex justify-between items-center border border-gray-800/50 shadow-2xl shadow-gray-950/50 hover:border-blue-500/30 transition-all duration-300">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent hover:from-cyan-400 hover:to-blue-400 transition-all duration-300">
             MR
@@ -244,7 +244,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="pt-44 pb-24 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 min-h-screen flex items-center justify-center relative overflow-hidden w-full">
+      <section className="pt-44 pb-24 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
@@ -252,21 +252,21 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto relative z-10 flex flex-col items-center justify-center px-4">
-          <div className="text-center w-full">
-            <h1 className="text-7xl sm:text-8xl font-bold text-white mb-6 tracking-tighter leading-tight w-full">
+          <div className="text-center max-w-4xl">
+            <h1 className="text-7xl sm:text-8xl font-bold text-white mb-6 tracking-tighter leading-tight">
               Malavya <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 animate-pulse">Raval</span>
             </h1>
-            <p className="text-2xl md:text-3xl text-gray-300 mb-6 w-full font-light tracking-wide">
+            <p className="text-2xl md:text-3xl text-gray-300 mb-6 font-light tracking-wide">
               Full-Stack Developer <span className="text-blue-400">•</span> AI/ML Enthusiast <span className="text-blue-400">•</span> Problem Solver
             </p>
-            <div className="flex justify-center w-full">
-              <p className="text-base sm:text-lg text-gray-400 mb-12 leading-relaxed max-w-full sm:max-w-4xl px-2 text-center">
+            <div className="flex justify-center">
+              <p className="text-base sm:text-lg text-gray-400 mb-12 leading-relaxed max-w-4xl px-2 text-center">
                 Building practical, user-focused software and scalable systems.
                 <br className="hidden sm:block" />
                 <span className="text-blue-300 font-medium">Published AI research 🔬</span> • <span className="text-blue-300 font-medium">Hackathon winner 🏆</span> • <span className="text-blue-300 font-medium">500+ LeetCode problems solved 💪</span>
               </p>
             </div>
-            <div className="flex gap-4 justify-center flex-wrap w-full">
+            <div className="flex gap-4 justify-center flex-wrap">
               <button
                 onClick={() =>
                   document
@@ -353,8 +353,8 @@ export default function Home() {
           <div className="w-full" aria-hidden>
             <div className="mx-auto h-6"></div>
           </div>
-          <div className="px-4 md:px-8">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-4 max-w-6xl mx-auto">
+          <div className="flex justify-center w-full px-4 md:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-4 max-w-6xl mx-auto w-full justify-items-center">
             {projects.map((project) => (
               <a
                 key={project.id}
@@ -424,6 +424,7 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </div>
       </section>
 
       <div className="w-full" aria-hidden>
@@ -487,7 +488,8 @@ export default function Home() {
             <div className="w-full" aria-hidden>
               <div className="mx-auto h-10"></div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
+            <div className="flex justify-center w-full px-4 md:px-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-6xl">
                 <div className="group relative bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl p-8 min-h-[140px] text-center border border-blue-500/40 hover:border-blue-400/80 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 cursor-default overflow-hidden">
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-transparent"></div>
@@ -539,6 +541,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </section>

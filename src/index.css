@@ -6,9 +6,15 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
-  min-width: 320px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Standard approach to prevent horizontal scroll */
+}
+
+body {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -22,21 +28,7 @@ html {
   scroll-behavior: smooth;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-button {
-  border: none;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
+/* Ensure no elements expand beyond viewport width */
+*, *:before, *:after {
+  box-sizing: border-box;
 }

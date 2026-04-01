@@ -258,7 +258,7 @@ export default function Home() {
               Malavya <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 animate-pulse">Raval</span>
             </h1>
             <p className="text-2xl md:text-3xl text-gray-300 mb-6 font-light tracking-wide">
-              Full-Stack Developer <span className="text-blue-400">•</span> AI/ML Enthusiast <span className="text-blue-400">•</span> Problem Solver
+              Full-Stack Developer <span className="text-blue-400">•</span> AI/ML Researcher <span className="text-blue-400">•</span> Problem Solver
             </p>
             <div className="flex justify-center">
               <p className="text-base sm:text-lg text-gray-400 mb-12 leading-relaxed max-w-4xl px-2 text-center">

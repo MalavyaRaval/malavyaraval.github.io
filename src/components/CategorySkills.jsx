@@ -16,7 +16,7 @@ export default function CategorySkills({ skills }) {
 
     const createBox = (text) => {
       const div = document.createElement('div');
-      div.className = 'absolute px-4 py-2 font-bold font-sans text-lg text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
+      div.className = 'absolute px-6 py-3 font-bold font-sans text-xl text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
       div.innerText = text;
       
       let colorIndex = Math.floor(Math.random() * colors.length);
@@ -65,25 +65,27 @@ export default function CategorySkills({ skills }) {
         // Move
         box.x += box.dx;
         box.y += box.dy;
-        box.rotation += box.dRotation;
+        // box.rotation += box.dRotation;
 
         // Repel Mouse
         const dx = box.x + box.w / 2 - mouseRef.current.x;
         const dy = box.y + box.h / 2 - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 100) {
-          box.dx += (dx / dist) * 0.5;
-          box.dy += (dy / dist) * 0.5;
+          const speed = Math.sqrt(box.dx * box.dx + box.dy * box.dy);
+          box.dx += (dx / dist) * 0.2;
+          box.dy += (dy / dist) * 0.2;
+          const newSpeed = Math.sqrt(box.dx * box.dx + box.dy * box.dy);
+          box.dx = (box.dx / newSpeed) * speed;
+          box.dy = (box.dy / newSpeed) * speed;
         }
 
         // Bounce Walls
         if (box.x <= 0 || box.x + box.w >= container.clientWidth) {
           box.dx *= -1;
-          box.dRotation *= -1;
         }
         if (box.y <= 0 || box.y + box.h >= container.clientHeight) {
           box.dy *= -1;
-          box.dRotation *= -1;
         }
 
         // Collision Detection
@@ -91,17 +93,20 @@ export default function CategorySkills({ skills }) {
           const other = boxes[j];
           if (box.x < other.x + other.w && box.x + box.w > other.x &&
               box.y < other.y + other.h && box.y + box.h > other.y) {
-            box.dx *= -1;
-            box.dy *= -1;
-            other.dx *= -1;
-            other.dy *= -1;
+            // Swap velocities to maintain constant speed
+            const tempDx = box.dx;
+            const tempDy = box.dy;
+            box.dx = other.dx;
+            box.dy = other.dy;
+            other.dx = tempDx;
+            other.dy = tempDy;
           }
         }
 
         // Apply
         box.el.style.left = box.x + 'px';
         box.el.style.top = box.y + 'px';
-        box.el.style.transform = `rotate(${box.rotation}deg)`;
+        // box.el.style.transform = `rotate(${box.rotation}deg)`;
       });
       animationFrameRef.current = requestAnimationFrame(animate);
     }

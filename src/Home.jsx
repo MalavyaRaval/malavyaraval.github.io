@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import CategorySkills from "./components/CategorySkills";
+import NeonSkills from "./components/NeonSkills";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -455,6 +456,13 @@ export default function Home() {
                   <CategorySkills skills={category.skills} />
                 </motion.div>
               ))}
+            </div>
+          </div>
+          
+          {/* Neon Skills */}
+          <div className="mt-8 flex justify-center w-full px-4 md:px-8">
+            <div className="max-w-6xl w-full">
+              <NeonSkills />
             </div>
           </div>
 

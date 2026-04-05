@@ -79,7 +79,12 @@ export default function CategorySkills({ skills }) {
   }, [skills]);
 
   return (
-    <div className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" ref={containerRef}>
+    <div 
+      className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
+      ref={containerRef}
+      role="img"
+      aria-label="Moving skill cloud visualization: technical skills floating."
+    >
     </div>
   );
 }

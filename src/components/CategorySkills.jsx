@@ -16,7 +16,8 @@ export default function CategorySkills({ skills }) {
 
     const createBox = (text) => {
       const div = document.createElement('div');
-      div.className = 'absolute px-6 py-3 font-bold font-sans text-xl text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
+      // Reverted to smaller font size/padding to fit better, but kept rotation fix
+      div.className = 'absolute px-4 py-2 font-bold font-sans text-lg text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
       div.innerText = text;
       
       let colorIndex = Math.floor(Math.random() * colors.length);

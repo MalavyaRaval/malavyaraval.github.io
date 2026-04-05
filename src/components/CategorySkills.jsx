@@ -119,7 +119,7 @@ export default function CategorySkills({ skills }) {
   return (
     <div className="relative">
       <div 
-          className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
+          className="w-full h-80 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
           ref={containerRef}
           role="img"
           aria-label="Moving skill cloud visualization: technical skills floating with interactivity."

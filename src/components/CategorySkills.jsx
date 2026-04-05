@@ -94,7 +94,17 @@ export default function CategorySkills({ skills }) {
           const other = boxes[j];
           if (box.x < other.x + other.w && box.x + box.w > other.x &&
               box.y < other.y + other.h && box.y + box.h > other.y) {
-            // Swap velocities to maintain constant speed
+            // Push them apart to prevent sticking
+            const overlapX = Math.min(box.x + box.w - other.x, other.x + other.w - box.x);
+            const overlapY = Math.min(box.y + box.h - other.y, other.y + other.h - box.y);
+            
+            if (overlapX < overlapY) {
+              if (box.x < other.x) box.x -= overlapX / 2; else box.x += overlapX / 2;
+            } else {
+              if (box.y < other.y) box.y -= overlapY / 2; else box.y += overlapY / 2;
+            }
+
+            // Swap velocities
             const tempDx = box.dx;
             const tempDy = box.dy;
             box.dx = other.dx;

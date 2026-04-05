@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function CategorySkills({ skills }) {
   const containerRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [showStatic, setShowStatic] = useState(false);
   const animationFrameRef = useRef(null);
   const boxesRef = useRef([]);
 
@@ -57,7 +58,7 @@ export default function CategorySkills({ skills }) {
   }, [skills]);
 
   useEffect(() => {
-    if (isPaused) {
+    if (isPaused || showStatic) {
       cancelAnimationFrame(animationFrameRef.current);
       return;
     }
@@ -81,23 +82,40 @@ export default function CategorySkills({ skills }) {
     animate();
 
     return () => cancelAnimationFrame(animationFrameRef.current);
-  }, [isPaused]);
+  }, [isPaused, showStatic]);
 
   return (
     <div className="relative">
-      <div 
-        className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
-        ref={containerRef}
-        role="img"
-        aria-label="Moving skill cloud visualization: technical skills floating."
-      />
-      <button 
-        onClick={() => setIsPaused(!isPaused)}
-        className="absolute top-2 right-2 z-20 bg-blue-500/80 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded"
-        aria-label={isPaused ? "Resume animation" : "Pause animation"}
-      >
-        {isPaused ? "Resume" : "Pause"}
-      </button>
+      <div className="flex gap-2 mb-2">
+        <button 
+          onClick={() => setIsPaused(!isPaused)}
+          className="bg-blue-500/80 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded transition-colors"
+          aria-label={isPaused ? "Resume animation" : "Pause animation"}
+        >
+          {isPaused ? "Resume" : "Pause"}
+        </button>
+        <button 
+          onClick={() => setShowStatic(!showStatic)}
+          className="bg-gray-600 hover:bg-gray-700 text-white text-xs px-2 py-1 rounded transition-colors"
+        >
+          {showStatic ? "Show Animation" : "Show Static List"}
+        </button>
+      </div>
+
+      {showStatic ? (
+        <ul className="w-full h-48 bg-gray-900 border border-white/20 rounded-xl p-4 overflow-y-auto list-none flex flex-wrap gap-2">
+            {[...new Set(skills)].map(s => (
+                <li key={s} className="bg-white text-black px-2 py-1 rounded text-sm font-semibold">{s}</li>
+            ))}
+        </ul>
+      ) : (
+        <div 
+            className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
+            ref={containerRef}
+            role="img"
+            aria-label="Moving skill cloud visualization: technical skills floating."
+        />
+      )}
     </div>
   );
 }

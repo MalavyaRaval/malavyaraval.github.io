@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const skills = [
   "TypeScript", "Python", "Java", "C++", "JavaScript", "SQL", "C", "Swift",
@@ -11,13 +11,17 @@ const skills = [
 
 export default function NeonSkills() {
   const containerRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const [showStatic, setShowStatic] = useState(false);
+  const animationFrameRef = useRef(null);
+  const boxesRef = useRef([]);
 
   useEffect(() => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || showStatic) return;
 
+    container.innerHTML = '';
     const boxCount = skills.length;
-    const boxes = [];
     const speed = 1.5;
 
     const createBox = (text) => {
@@ -44,13 +48,22 @@ export default function NeonSkills() {
       return { el: div, x, y, dx, dy, w, h };
     };
 
-    for (let i = 0; i < boxCount; i++) {
-      boxes.push(createBox(skills[i]));
+    boxesRef.current = skills.map(s => createBox(s));
+
+    return () => cancelAnimationFrame(animationFrameRef.current);
+  }, [showStatic]);
+
+  useEffect(() => {
+    if (isPaused || showStatic) {
+      cancelAnimationFrame(animationFrameRef.current);
+      return;
     }
 
-    let animationId;
     function animate() {
-      boxes.forEach(box => {
+      boxesRef.current.forEach(box => {
+        const container = containerRef.current;
+        if (!container) return;
+
         box.x += box.dx;
         box.y += box.dy;
 
@@ -60,24 +73,50 @@ export default function NeonSkills() {
         box.el.style.left = box.x + 'px';
         box.el.style.top = box.y + 'px';
       });
-      animationId = requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(animate);
     }
     animate();
 
-    return () => cancelAnimationFrame(animationId);
-  }, []);
+    return () => cancelAnimationFrame(animationFrameRef.current);
+  }, [isPaused, showStatic]);
 
   return (
-    <div className="w-full h-[600px] bg-black border-4 border-white rounded-xl relative overflow-hidden" ref={containerRef}>
-      <style>{`
-        @keyframes neon-cycle {
-          0% { border-color: #FF00FF; box-shadow: 0 0 10px #FF00FF; }
-          33% { border-color: #00FFFF; box-shadow: 0 0 10px #00FFFF; }
-          66% { border-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
-          100% { border-color: #FF00FF; box-shadow: 0 0 10px #FF00FF; }
-        }
-        .animate-neon-cycle { animation: neon-cycle 3s infinite linear; }
-      `}</style>
+    <div className="relative">
+      <div className="flex gap-2 mb-2">
+        <button 
+          onClick={() => setIsPaused(!isPaused)}
+          className="bg-blue-500/80 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded transition-colors"
+          aria-label={isPaused ? "Resume animation" : "Pause animation"}
+        >
+          {isPaused ? "Resume" : "Pause"}
+        </button>
+        <button 
+          onClick={() => setShowStatic(!showStatic)}
+          className="bg-gray-600 hover:bg-gray-700 text-white text-xs px-2 py-1 rounded transition-colors"
+        >
+          {showStatic ? "Show Animation" : "Show Static List"}
+        </button>
+      </div>
+
+      {showStatic ? (
+        <ul className="w-full h-[600px] bg-gray-900 border-4 border-white rounded-xl p-6 overflow-y-auto list-none flex flex-wrap gap-3 content-start">
+            {skills.map(s => (
+                <li key={s} className="bg-white text-black px-3 py-1.5 rounded-lg text-sm font-semibold">{s}</li>
+            ))}
+        </ul>
+      ) : (
+        <div className="w-full h-[600px] bg-black border-4 border-white rounded-xl relative overflow-hidden" ref={containerRef} role="img" aria-label="Moving neon skill cloud visualization.">
+          <style>{`
+            @keyframes neon-cycle {
+              0% { border-color: #FF00FF; box-shadow: 0 0 10px #FF00FF; }
+              33% { border-color: #00FFFF; box-shadow: 0 0 10px #00FFFF; }
+              66% { border-color: #00FF00; box-shadow: 0 0 10px #00FF00; }
+              100% { border-color: #FF00FF; box-shadow: 0 0 10px #FF00FF; }
+            }
+            .animate-neon-cycle { animation: neon-cycle 3s infinite linear; }
+          `}</style>
+        </div>
+      )}
     </div>
   );
 }

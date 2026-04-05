@@ -1,7 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function CategorySkills({ skills }) {
   const containerRef = useRef(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const animationFrameRef = useRef(null);
+  const boxesRef = useRef([]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -10,24 +13,20 @@ export default function CategorySkills({ skills }) {
     container.innerHTML = '';
     const uniqueSkills = [...new Set(skills)];
     const boxCount = uniqueSkills.length;
-    const boxes = [];
     const speed = 1.5;
     
     const colors = ['#FF00FF', '#00FFFF', '#00FF00', '#FF0000', '#FFFF00', '#FF8C00'];
 
     const createBox = (text) => {
       const div = document.createElement('div');
-      // Thinner border-2, transition for smooth color switching
       div.className = 'absolute px-4 py-2 font-bold font-sans text-lg text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid';
       div.innerText = text;
       div.style.transition = 'border-color 0.5s ease, box-shadow 0.5s ease';
       
-      // Initial color
       let colorIndex = Math.floor(Math.random() * colors.length);
       div.style.borderColor = colors[colorIndex];
       div.style.boxShadow = `0 0 5px ${colors[colorIndex]}`;
       
-      // Cycle color every few seconds
       const interval = setInterval(() => {
         colorIndex = (colorIndex + 1) % colors.length;
         div.style.borderColor = colors[colorIndex];
@@ -46,19 +45,28 @@ export default function CategorySkills({ skills }) {
       let dx = Math.cos(angle) * speed;
       let dy = Math.sin(angle) * speed;
       
-      div.style.left = x + 'px';
-      div.style.top = y + 'px';
-      
       return { el: div, x, y, dx, dy, w, h, interval };
     };
 
-    for (let i = 0; i < boxCount; i++) {
-      boxes.push(createBox(uniqueSkills[i]));
+    boxesRef.current = uniqueSkills.map(s => createBox(s));
+
+    return () => {
+      cancelAnimationFrame(animationFrameRef.current);
+      boxesRef.current.forEach(box => clearInterval(box.interval));
+    };
+  }, [skills]);
+
+  useEffect(() => {
+    if (isPaused) {
+      cancelAnimationFrame(animationFrameRef.current);
+      return;
     }
 
-    let animationId;
     function animate() {
-      boxes.forEach(box => {
+      boxesRef.current.forEach(box => {
+        const container = containerRef.current;
+        if (!container) return;
+
         box.x += box.dx;
         box.y += box.dy;
 
@@ -68,23 +76,28 @@ export default function CategorySkills({ skills }) {
         box.el.style.left = box.x + 'px';
         box.el.style.top = box.y + 'px';
       });
-      animationId = requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(animate);
     }
     animate();
 
-    return () => {
-      cancelAnimationFrame(animationId);
-      boxes.forEach(box => clearInterval(box.interval));
-    };
-  }, [skills]);
+    return () => cancelAnimationFrame(animationFrameRef.current);
+  }, [isPaused]);
 
   return (
-    <div 
-      className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
-      ref={containerRef}
-      role="img"
-      aria-label="Moving skill cloud visualization: technical skills floating."
-    >
+    <div className="relative">
+      <div 
+        className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
+        ref={containerRef}
+        role="img"
+        aria-label="Moving skill cloud visualization: technical skills floating."
+      />
+      <button 
+        onClick={() => setIsPaused(!isPaused)}
+        className="absolute top-2 right-2 z-20 bg-blue-500/80 hover:bg-blue-600 text-white text-xs px-2 py-1 rounded"
+        aria-label={isPaused ? "Resume animation" : "Pause animation"}
+      >
+        {isPaused ? "Resume" : "Pause"}
+      </button>
     </div>
   );
 }

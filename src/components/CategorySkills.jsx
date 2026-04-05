@@ -16,7 +16,7 @@ export default function CategorySkills({ skills }) {
 
     const createBox = (text) => {
       const div = document.createElement('div');
-      // Reverted to smaller font size/padding to fit better, but kept rotation fix
+      // Original size (reverted px-6/py-3 to px-4/py-2 and text-xl to text-lg)
       div.className = 'absolute px-4 py-2 font-bold font-sans text-lg text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
       div.innerText = text;
       

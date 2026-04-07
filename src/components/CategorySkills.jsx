@@ -16,8 +16,7 @@ export default function CategorySkills({ skills }) {
 
     const createBox = (text) => {
       const div = document.createElement('div');
-      // Original size (reverted px-6/py-3 to px-4/py-2 and text-xl to text-lg)
-      div.className = 'absolute px-4 py-2 font-bold font-sans text-lg text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border-2 border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
+      div.className = 'absolute px-3 py-1.5 font-bold font-sans text-sm text-black bg-white rounded-lg flex items-center justify-center whitespace-nowrap border border-solid cursor-pointer hover:scale-110 transition-transform duration-200';
       div.innerText = text;
       
       let colorIndex = Math.floor(Math.random() * colors.length);
@@ -26,6 +25,7 @@ export default function CategorySkills({ skills }) {
       
       container.appendChild(div);
       
+      // We calculate dimensions after appending to get accurate offsetWidth/Height
       const w = div.offsetWidth;
       const h = div.offsetHeight;
       
@@ -33,10 +33,8 @@ export default function CategorySkills({ skills }) {
         el: div, 
         x: Math.random() * Math.max(0, container.clientWidth - w), 
         y: Math.random() * Math.max(0, container.clientHeight - h), 
-        dx: (Math.random() - 0.5) * 4, 
-        dy: (Math.random() - 0.5) * 4, 
-        rotation: 0,
-        dRotation: (Math.random() - 0.5) * 2,
+        dx: (Math.random() - 0.5) * 3, 
+        dy: (Math.random() - 0.5) * 3, 
         w, h 
       };
     };
@@ -60,64 +58,48 @@ export default function CategorySkills({ skills }) {
       const container = containerRef.current;
       if (!container) return;
 
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
       const boxes = boxesRef.current;
 
       boxes.forEach((box, i) => {
         // Move
         box.x += box.dx;
         box.y += box.dy;
-        // box.rotation += box.dRotation;
 
         // Repel Mouse
         const dx = box.x + box.w / 2 - mouseRef.current.x;
         const dy = box.y + box.h / 2 - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 100) {
-          const speed = Math.sqrt(box.dx * box.dx + box.dy * box.dy);
-          box.dx += (dx / dist) * 0.2;
-          box.dy += (dy / dist) * 0.2;
-          const newSpeed = Math.sqrt(box.dx * box.dx + box.dy * box.dy);
-          box.dx = (box.dx / newSpeed) * speed;
-          box.dy = (box.dy / newSpeed) * speed;
+          box.dx += (dx / dist) * 0.1;
+          box.dy += (dy / dist) * 0.1;
         }
 
-        // Bounce Walls
-        if (box.x <= 0 || box.x + box.w >= container.clientWidth) {
-          box.dx *= -1;
-        }
-        if (box.y <= 0 || box.y + box.h >= container.clientHeight) {
-          box.dy *= -1;
-        }
+        // Clamp & Bounce Walls (Strictly inside container)
+        if (box.x <= 0) { box.x = 0; box.dx *= -1; }
+        else if (box.x + box.w >= containerWidth) { box.x = containerWidth - box.w; box.dx *= -1; }
+
+        if (box.y <= 0) { box.y = 0; box.dy *= -1; }
+        else if (box.y + box.h >= containerHeight) { box.y = containerHeight - box.h; box.dy *= -1; }
 
         // Collision Detection
         for (let j = i + 1; j < boxes.length; j++) {
           const other = boxes[j];
           if (box.x < other.x + other.w && box.x + box.w > other.x &&
               box.y < other.y + other.h && box.y + box.h > other.y) {
-            // Push them apart to prevent sticking
-            const overlapX = Math.min(box.x + box.w - other.x, other.x + other.w - box.x);
-            const overlapY = Math.min(box.y + box.h - other.y, other.y + other.h - box.y);
             
-            if (overlapX < overlapY) {
-              if (box.x < other.x) box.x -= overlapX / 2; else box.x += overlapX / 2;
-            } else {
-              if (box.y < other.y) box.y -= overlapY / 2; else box.y += overlapY / 2;
-            }
-
-            // Swap velocities
-            const tempDx = box.dx;
-            const tempDy = box.dy;
-            box.dx = other.dx;
-            box.dy = other.dy;
-            other.dx = tempDx;
-            other.dy = tempDy;
+            // Simple bounce-off on collision
+            box.dx *= -1;
+            box.dy *= -1;
+            other.dx *= -1;
+            other.dy *= -1;
           }
         }
 
         // Apply
         box.el.style.left = box.x + 'px';
         box.el.style.top = box.y + 'px';
-        // box.el.style.transform = `rotate(${box.rotation}deg)`;
       });
       animationFrameRef.current = requestAnimationFrame(animate);
     }
@@ -132,7 +114,7 @@ export default function CategorySkills({ skills }) {
           className="w-full h-48 bg-black border border-white/20 rounded-xl relative overflow-hidden" 
           ref={containerRef}
           role="img"
-          aria-label="Moving skill cloud visualization: technical skills floating with interactivity."
+          aria-label="Moving skill cloud visualization."
       />
     </div>
   );

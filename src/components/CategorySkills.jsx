@@ -28,16 +28,12 @@ export default function CategorySkills({ skills }) {
       const w = div.offsetWidth;
       const h = div.offsetHeight;
       
-      // Ensure initial position is within container bounds
-      const x = Math.random() * Math.max(0, container.clientWidth - w);
-      const y = Math.random() * Math.max(0, container.clientHeight - h);
-      
       return { 
         el: div, 
-        x, 
-        y, 
-        dx: (Math.random() - 0.5) * 1.5, 
-        dy: (Math.random() - 0.5) * 1.5, 
+        x: Math.random() * Math.max(0, container.clientWidth - w), 
+        y: Math.random() * Math.max(0, container.clientHeight - h), 
+        dx: (Math.random() - 0.5) * 2, 
+        dy: (Math.random() - 0.5) * 2, 
         w, h 
       };
     };
@@ -75,34 +71,30 @@ export default function CategorySkills({ skills }) {
         const dy = box.y + box.h / 2 - mouseRef.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 100) {
-          box.dx += (dx / dist) * 0.05;
-          box.dy += (dy / dist) * 0.05;
+          box.dx += (dx / dist) * 0.1;
+          box.dy += (dy / dist) * 0.1;
         }
 
-        // Clamp & Bounce Walls
-        if (box.x <= 0) { box.x = 0; box.dx = Math.abs(box.dx); }
-        else if (box.x + box.w >= containerWidth) { box.x = containerWidth - box.w; box.dx = -Math.abs(box.dx); }
+        // Bounce Walls
+        if (box.x <= 0) { box.x = 0; box.dx = Math.abs(box.dx) + 0.1; }
+        else if (box.x + box.w >= containerWidth) { box.x = containerWidth - box.w; box.dx = -Math.abs(box.dx) - 0.1; }
 
-        if (box.y <= 0) { box.y = 0; box.dy = Math.abs(box.dy); }
-        else if (box.y + box.h >= containerHeight) { box.y = containerHeight - box.h; box.dy = -Math.abs(box.dy); }
+        if (box.y <= 0) { box.y = 0; box.dy = Math.abs(box.dy) + 0.1; }
+        else if (box.y + box.h >= containerHeight) { box.y = containerHeight - box.h; box.dy = -Math.abs(box.dy) - 0.1; }
 
-        // Correct Collision Detection
+        // Robust Collision Detection
         for (let j = i + 1; j < boxes.length; j++) {
           const other = boxes[j];
           if (box.x < other.x + other.w && box.x + box.w > other.x &&
               box.y < other.y + other.h && box.y + box.h > other.y) {
             
-            // Simple swap velocities on collision
-            box.dx *= -1;
-            box.dy *= -1;
-            other.dx *= -1;
-            other.dy *= -1;
+            // Swap velocities and add a small push to guarantee separation
+            [box.dx, other.dx] = [-other.dx, -box.dx];
+            [box.dy, other.dy] = [-other.dy, -box.dy];
             
-            // Push apart slightly to prevent overlap stickiness
-            box.x += box.dx;
-            box.y += box.dy;
-            other.x += other.dx;
-            other.y += other.dy;
+            // Force jump apart
+            box.x += box.dx; box.y += box.dy;
+            other.x += other.dx; other.y += other.dy;
           }
         }
 

@@ -99,13 +99,13 @@ export default function NeonSkills() {
       </div>
 
       {showStatic ? (
-        <ul className="w-full h-[600px] bg-gray-900 border-4 border-white rounded-xl p-6 overflow-y-auto list-none flex flex-wrap gap-3 content-start">
+        <ul className="w-full h-[400px] bg-gray-900 border-4 border-white rounded-xl p-6 overflow-y-auto list-none flex flex-wrap gap-3 content-start">
             {skills.map(s => (
                 <li key={s} className="bg-white text-black px-3 py-1.5 rounded-lg text-sm font-semibold">{s}</li>
             ))}
         </ul>
       ) : (
-        <div className="w-full h-[600px] bg-black border-4 border-white rounded-xl relative overflow-hidden" ref={containerRef} role="img" aria-label="Moving neon skill cloud visualization.">
+        <div className="w-full h-[400px] bg-black border-4 border-white rounded-xl relative overflow-hidden" ref={containerRef} role="img" aria-label="Moving neon skill cloud visualization.">
           <style>{`
             @keyframes neon-cycle {
               0% { border-color: #FF00FF; box-shadow: 0 0 10px #FF00FF; }

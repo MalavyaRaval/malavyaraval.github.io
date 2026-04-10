@@ -602,7 +602,7 @@ export default function Home() {
             </a>
           </div>
           <p className="text-gray-600 text-xs">
-            &copy; {currentYear} Malavya Raval. Built with ❤
+            © {currentYear} Malavya Raval.
           </p>
         </div>
       </footer>

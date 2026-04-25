@@ -523,7 +523,7 @@ export default function Home() {
                   </div>
                   <div className="relative z-10 flex flex-col items-center justify-center h-full">
                     <div className="text-4xl font-bold text-green-300 mb-3 group-hover:text-green-200 transition-colors duration-300">
-                      1,600
+                      1,800
                     </div>
                     <p className="text-gray-200 text-sm font-semibold">
                       GitHub Contributions

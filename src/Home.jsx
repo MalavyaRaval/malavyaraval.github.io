@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import CategorySkills from "./components/CategorySkills";
 import InteractiveBackground from "./components/InteractiveBackground";
+import ProjectsSection from "./components/ProjectsSection";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -184,12 +185,6 @@ export default function Home() {
             >
               Skills
             </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-gray-300 hover:text-blue-300 transition-all duration-200 font-medium px-4 py-2 rounded-lg hover:bg-blue-500/10 cursor-pointer"
-            >
-              Contact
-            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -235,12 +230,6 @@ export default function Home() {
                 className="block w-full text-left px-4 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-300 rounded-lg transition-all duration-200 font-medium cursor-pointer"
               >
                 Skills
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="block w-full text-left px-4 py-3 text-gray-300 hover:bg-blue-500/20 hover:text-blue-300 rounded-lg transition-all duration-200 font-medium cursor-pointer"
-              >
-                Contact
               </button>
             </div>
           </div>
@@ -360,98 +349,8 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="bg-transparent w-full border-b border-gray-800/30" style={{ paddingTop: '3.5rem', paddingBottom: '3.5rem' }}>
-        <div className="container mx-auto px-6 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white text-center w-full tracking-tight" style={{ marginTop: '1rem', marginBottom: '2.5rem' }}>
-              Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Projects</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4 w-full">
-              {projects.map((project, idx) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  whileHover={{ y: -8 }}
-                  className="h-full"
-                >
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Open ${project.title} on GitHub`}
-                    className="group flex flex-col justify-between h-full bg-gradient-to-br from-slate-900/80 via-slate-900/60 to-slate-950/40 rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] border border-gray-800/80 hover:border-blue-500/50 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40 backdrop-blur-sm overflow-hidden"
-                  >
-                    <div className="p-6 flex flex-col flex-grow relative">
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-                      </div>
-                      
-                      <div className="relative z-10 flex-grow">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white font-bold text-sm shadow-md group-hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300">
-                            {getInitials(project.title)}
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
-                              {project.title}
-                            </h3>
-                            <p className="text-xs text-blue-400/70 mt-0.5">
-                              {project.tags.slice(0, 2).join(" • ")}
-                            </p>
-                          </div>
-                        </div>
+      <ProjectsSection />
 
-                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 text-sm leading-relaxed mb-6 font-light">
-                          {project.description}
-                        </p>
-                      </div>
-
-                      <div className="pt-6 border-t border-gray-800/60 flex items-center justify-between gap-4 relative z-10 mt-auto">
-                        <div className="flex gap-1.5 flex-wrap">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="bg-blue-500/10 text-blue-300 px-2.5 py-1 rounded-full text-xs font-medium border border-blue-500/20 transition-all duration-200 hover:bg-blue-500/20 hover:border-blue-400/40"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="flex items-center text-blue-400 font-semibold text-sm group-hover:text-cyan-300 transition-all duration-300 whitespace-nowrap">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-4 h-4 mr-1.5 transition-transform duration-300 group-hover:translate-x-1"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
-                          Visit
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Skills */}
       <section

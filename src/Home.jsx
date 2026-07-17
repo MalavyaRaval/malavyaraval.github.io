@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import CategorySkills from "./components/CategorySkills";
 import InteractiveBackground from "./components/InteractiveBackground";
 import ProjectsSection from "./components/ProjectsSection";
+import GlitchName from "./components/GlitchName";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -253,7 +254,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h1 className="text-7xl sm:text-8xl font-black text-white mb-6 tracking-tighter leading-none">
-                Malavya <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">Raval</span>
+                <GlitchName />
               </h1>
             </motion.div>
 

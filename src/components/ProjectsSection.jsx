@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -73,7 +73,18 @@ const projects = [
   },
 ];
 
-function ArrowIcon({ hovered, color }) {
+// Hoisted so these objects aren't rebuilt on every render — they never change.
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const ArrowIcon = memo(function ArrowIcon({ hovered, color }) {
   return (
     <motion.svg
       xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +102,7 @@ function ArrowIcon({ hovered, color }) {
       <path d="M5 12h14M12 5l7 7-7 7" />
     </motion.svg>
   );
-}
+});
 
 // hex color → rgba string
 function rgba(hex, alpha) {
@@ -101,8 +112,32 @@ function rgba(hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`;
 }
 
+// Crossfades a flat idle background into a hover gradient via opacity instead
+// of swapping the `background` value directly. CSS can't interpolate a solid
+// color into a gradient (nor a box-shadow list into one with a different
+// number of layers), so the old approach popped instantly on hover despite
+// having a `transition` — this is what read as "glitchy". Both layers sit at
+// opacity 0/1 at rest, so the rendered result at each state is unchanged;
+// only the transition between them is now a smooth fade.
+function HoverBackground({ idle, hover, hovered }) {
+  return (
+    <>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: -1, background: idle, opacity: hovered ? 0 : 1, transition: "opacity 0.4s" }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ zIndex: -1, background: hover, opacity: hovered ? 1 : 0, transition: "opacity 0.4s" }}
+      />
+    </>
+  );
+}
+
+const IDLE_BG = "rgba(10,16,30,0.75)";
+
 // ─── Standard card ──────────────────────────────────────────────────────────
-function ProjectCard({ project, className = "" }) {
+const ProjectCard = memo(function ProjectCard({ project, className = "" }) {
   const [hovered, setHovered] = useState(false);
   const c = project.color;
 
@@ -113,20 +148,23 @@ function ProjectCard({ project, className = "" }) {
       rel="noopener noreferrer"
       className={`relative flex flex-col overflow-hidden rounded-2xl cursor-pointer ${className}`}
       style={{
-        background: hovered
-          ? `linear-gradient(145deg, ${rgba(c, 0.12)}, rgba(10,16,30,0.85))`
-          : "rgba(10,16,30,0.75)",
         border: `1.5px solid ${hovered ? rgba(c, 0.65) : rgba(c, 0.2)}`,
         boxShadow: hovered
           ? `0 0 0 1px ${rgba(c, 0.15)}, 0 8px 40px ${rgba(c, 0.28)}, inset 0 1px 0 ${rgba(c, 0.15)}`
-          : `0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.05)`,
-        transition: "background 0.4s, border-color 0.35s, box-shadow 0.4s",
+          : `0 0 0 1px rgba(255,255,255,0.03), 0 8px 40px ${rgba(c, 0)}, inset 0 1px 0 rgba(255,255,255,0.05)`,
+        transition: "border-color 0.35s, box-shadow 0.4s",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       whileHover={{ y: -7, scale: 1.018 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
+      <HoverBackground
+        idle={IDLE_BG}
+        hover={`linear-gradient(145deg, ${rgba(c, 0.12)}, rgba(10,16,30,0.85))`}
+        hovered={hovered}
+      />
+
       {/* top accent line — always visible, brighter on hover */}
       <div
         style={{
@@ -220,10 +258,10 @@ function ProjectCard({ project, className = "" }) {
       </div>
     </motion.a>
   );
-}
+});
 
 // ─── Featured large card ─────────────────────────────────────────────────────
-function FeaturedCard({ project }) {
+const FeaturedCard = memo(function FeaturedCard({ project }) {
   const [hovered, setHovered] = useState(false);
   const c = project.color;
 
@@ -234,14 +272,11 @@ function FeaturedCard({ project }) {
       rel="noopener noreferrer"
       className="relative flex flex-col overflow-hidden rounded-2xl cursor-pointer md:col-span-2"
       style={{
-        background: hovered
-          ? `linear-gradient(135deg, ${rgba(c, 0.14)}, rgba(10,16,30,0.9))`
-          : "rgba(10,16,30,0.75)",
         border: `1.5px solid ${hovered ? rgba(c, 0.7) : rgba(c, 0.25)}`,
         boxShadow: hovered
           ? `0 0 0 1px ${rgba(c, 0.15)}, 0 12px 60px ${rgba(c, 0.35)}, inset 0 1px 0 ${rgba(c, 0.2)}`
-          : `0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.06)`,
-        transition: "background 0.4s, border-color 0.35s, box-shadow 0.4s",
+          : `0 0 0 1px rgba(255,255,255,0.03), 0 12px 60px ${rgba(c, 0)}, inset 0 1px 0 rgba(255,255,255,0.06)`,
+        transition: "border-color 0.35s, box-shadow 0.4s",
         minHeight: "260px",
       }}
       onMouseEnter={() => setHovered(true)}
@@ -249,6 +284,12 @@ function FeaturedCard({ project }) {
       whileHover={{ y: -7, scale: 1.01 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
+      <HoverBackground
+        idle={IDLE_BG}
+        hover={`linear-gradient(135deg, ${rgba(c, 0.14)}, rgba(10,16,30,0.9))`}
+        hovered={hovered}
+      />
+
       {/* top accent */}
       <div
         style={{
@@ -349,10 +390,10 @@ function FeaturedCard({ project }) {
       </div>
     </motion.a>
   );
-}
+});
 
 // ─── Wide horizontal card ─────────────────────────────────────────────────────
-function WideCard({ project }) {
+const WideCard = memo(function WideCard({ project }) {
   const [hovered, setHovered] = useState(false);
   const c = project.color;
 
@@ -363,20 +404,23 @@ function WideCard({ project }) {
       rel="noopener noreferrer"
       className="relative flex flex-col md:flex-row overflow-hidden rounded-2xl cursor-pointer md:col-span-3"
       style={{
-        background: hovered
-          ? `linear-gradient(135deg, ${rgba(c, 0.12)}, rgba(10,16,30,0.9))`
-          : "rgba(10,16,30,0.75)",
         border: `1.5px solid ${hovered ? rgba(c, 0.65) : rgba(c, 0.2)}`,
         boxShadow: hovered
           ? `0 0 0 1px ${rgba(c, 0.15)}, 0 8px 50px ${rgba(c, 0.3)}, inset 0 1px 0 ${rgba(c, 0.15)}`
-          : `0 0 0 1px rgba(255,255,255,0.03), inset 0 1px 0 rgba(255,255,255,0.05)`,
-        transition: "background 0.4s, border-color 0.35s, box-shadow 0.4s",
+          : `0 0 0 1px rgba(255,255,255,0.03), 0 8px 50px ${rgba(c, 0)}, inset 0 1px 0 rgba(255,255,255,0.05)`,
+        transition: "border-color 0.35s, box-shadow 0.4s",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       whileHover={{ y: -5, scale: 1.008 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
     >
+      <HoverBackground
+        idle={IDLE_BG}
+        hover={`linear-gradient(135deg, ${rgba(c, 0.12)}, rgba(10,16,30,0.9))`}
+        hovered={hovered}
+      />
+
       {/* top accent line */}
       <div
         style={{
@@ -477,7 +521,7 @@ function WideCard({ project }) {
       </div>
     </motion.a>
   );
-}
+});
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 export default function ProjectsSection() {
@@ -485,16 +529,6 @@ export default function ProjectsSection() {
   const side = projects[1];
   const midRow = projects.slice(2, 5);
   const wide = projects[5];
-
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.1 } },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 28 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
 
   return (
     <section

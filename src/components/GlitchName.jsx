@@ -1,230 +1,155 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { m } from "framer-motion";
+
+const FIRST_NAME = "Malavya";
+const FULL_NAME = `${FIRST_NAME} Raval`;
+
+// One entry per character; the last name gets the gradient treatment.
+const LETTERS = [...FULL_NAME].map((char, i) => ({
+  char,
+  isSpace: char === " ",
+  isGradient: i > FIRST_NAME.length,
+}));
+const GLITCHABLE = LETTERS.flatMap((letter, i) => (letter.isSpace ? [] : [i]));
+
+const GRADIENT_CLASS = "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400";
+const HACKER_GLYPHS = "01<>/\\_[]{}+-*#%@!$?X0101";
+
+const FIRST_GLITCH_MS = 400;
+const GLITCH_EVERY_MS = 3000;
+const SCRAMBLE_TICK_MS = 45;
+const SCRAMBLE_TICKS = 4;
+const GLITCH_DURATION_MS = 550;
+
+// How the glitched letter looks: random glyphs while scrambling, then the real letter in
+// hacker styling until the glitch ends. Both phases render the same m.span (same key
+// and type), so framer animates from the scramble's end state into the settled one.
+const GLITCH_STYLES = {
+  CYBERPUNK: {
+    scramble: {
+      className: "font-mono text-pink-500 inline-block align-middle",
+      style: { textShadow: "1px -1px 0 #06b6d4, -1px 1px 0 #f43f5e" },
+      animate: { scale: [1, 1.3, 0.8, 1.1], skewX: [0, 15, -15, 0] },
+      transition: { duration: 0.18 },
+    },
+    settled: {
+      className: "font-mono text-cyan-300 inline-block font-extrabold align-middle",
+      style: { fontFamily: '"Courier New", Courier, monospace', textShadow: "2px -1px 0 #ef4444, -2px 1px 0 #3b82f6" },
+      animate: { skewY: 5, scale: 1.1 },
+      transition: { duration: 0.3 },
+    },
+  },
+  MATRIX: {
+    scramble: {
+      className: "font-mono text-green-400 inline-block align-middle",
+      style: { textShadow: "0 0 8px #22c55e, 0 0 15px #15803d" },
+      animate: { scale: [1, 1.2, 0.9, 1.1], y: [0, -2, 2, 0] },
+      transition: { duration: 0.18 },
+    },
+    settled: {
+      className: "font-mono text-green-300 inline-block font-bold align-middle",
+      style: { fontFamily: '"Fira Code", "Courier New", Courier, monospace', textShadow: "0 0 8px #22c55e, 0 0 20px #15803d" },
+      animate: { skewX: -10, scale: 1.05 },
+      transition: { duration: 0.3 },
+    },
+  },
+  NOISE: {
+    scramble: {
+      className: "font-mono text-gray-400 inline-block align-middle",
+      style: { textShadow: "0 0 5px #9ca3af" },
+      animate: { scaleY: [1, 0.6, 1.4, 1], x: [0, -3, 3, 0] },
+      transition: { duration: 0.18 },
+    },
+    settled: {
+      className: "font-mono text-purple-400 inline-block font-extrabold align-middle",
+      style: { fontFamily: '"Courier New", Courier, monospace', textShadow: "0 0 8px #c084fc" },
+      animate: { y: -3, scale: 1.05 },
+      transition: { duration: 0.3 },
+    },
+  },
+};
+const STYLE_NAMES = Object.keys(GLITCH_STYLES);
+
+const pick = (items) => items[Math.floor(Math.random() * items.length)];
+const randomGlyph = (style) => (style === "MATRIX" ? (Math.random() > 0.5 ? "0" : "1") : pick(HACKER_GLYPHS));
 
 export default function GlitchName() {
-  const originalName = [
-    { char: "M", isGradient: false },
-    { char: "a", isGradient: false },
-    { char: "l", isGradient: false },
-    { char: "a", isGradient: false },
-    { char: "v", isGradient: false },
-    { char: "y", isGradient: false },
-    { char: "a", isGradient: false },
-    { char: " ", isSpace: true },
-    { char: "R", isGradient: true },
-    { char: "a", isGradient: true },
-    { char: "v", isGradient: true },
-    { char: "a", isGradient: true },
-    { char: "l", isGradient: true },
-  ];
-
-  // State to track which index is currently glitching
-  const [glitchedIndex, setGlitchedIndex] = useState(null);
-  
-  // Phase of the glitch: "scramble" (fast character swapping) or "settled" (styled letter) or "none"
-  const [glitchPhase, setGlitchPhase] = useState("none");
-  
-  // Current display character during scramble phase
-  const [currentDisplayChar, setCurrentDisplayChar] = useState("");
-  
-  // Active glitch style type
-  const [activeStyle, setActiveStyle] = useState("CYBERPUNK");
-
-  const glitchTypes = ["CYBERPUNK", "MATRIX", "NOISE"];
-  
-  const hackerGlyphs = "01<>/\\_[]{}+-*#%@!$?X0101";
+  // null while idle, otherwise { index, style, phase: "scramble" | "settled", char }
+  const [glitch, setGlitch] = useState(null);
 
   useEffect(() => {
+    let scrambleTimer;
+    let endTimer;
+
     const triggerGlitch = () => {
-      // Pick a random letter index (exclude space at index 7)
-      const letterIndices = [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12];
-      const randomIndex = letterIndices[Math.floor(Math.random() * letterIndices.length)];
-      
-      // Pick a random glitch style
-      const randomStyle = glitchTypes[Math.floor(Math.random() * glitchTypes.length)];
-      
-      setActiveStyle(randomStyle);
-      setGlitchedIndex(randomIndex);
-      setGlitchPhase("scramble");
+      clearInterval(scrambleTimer);
+      clearTimeout(endTimer);
 
-      // Phase 1: Scramble phase (fast swapping of random characters)
+      const index = pick(GLITCHABLE);
+      const style = pick(STYLE_NAMES);
+      setGlitch({ index, style, phase: "scramble", char: randomGlyph(style) });
+
       let ticks = 0;
-      const scrambleInterval = setInterval(() => {
-        let displayChar = hackerGlyphs[Math.floor(Math.random() * hackerGlyphs.length)];
-        
-        // Sometimes use binary
-        if (randomStyle === "MATRIX") {
-          displayChar = Math.random() > 0.5 ? "0" : "1";
+      scrambleTimer = setInterval(() => {
+        ticks += 1;
+        if (ticks < SCRAMBLE_TICKS) {
+          const char = randomGlyph(style);
+          setGlitch((g) => g && { ...g, char });
+        } else {
+          clearInterval(scrambleTimer);
+          setGlitch((g) => g && { ...g, phase: "settled" });
         }
-        
-        setCurrentDisplayChar(displayChar);
-        ticks++;
-        
-        if (ticks >= 4) {
-          clearInterval(scrambleInterval);
-          // Phase 2: Settle on the original letter but in glitch styling
-          setGlitchPhase("settled");
-        }
-      }, 45);
+      }, SCRAMBLE_TICK_MS);
 
-      // Phase 3: Settle ends after another short period, back to normal
-      setTimeout(() => {
-        setGlitchedIndex(null);
-        setGlitchPhase("none");
-      }, 550);
+      endTimer = setTimeout(() => setGlitch(null), GLITCH_DURATION_MS);
     };
 
-    // Run glitch every 3000ms
-    const mainInterval = setInterval(triggerGlitch, 3000);
-    
-    // Run once initially after 400ms
-    const initialTimeout = setTimeout(triggerGlitch, 400);
-
+    const firstTimer = setTimeout(triggerGlitch, FIRST_GLITCH_MS);
+    const loopTimer = setInterval(triggerGlitch, GLITCH_EVERY_MS);
     return () => {
-      clearInterval(mainInterval);
-      clearTimeout(initialTimeout);
+      clearTimeout(firstTimer);
+      clearInterval(loopTimer);
+      clearInterval(scrambleTimer);
+      clearTimeout(endTimer);
     };
   }, []);
 
   return (
-    <span className="inline-flex select-none font-black">
-      {originalName.map((item, index) => {
-        if (item.isSpace) {
-          return <span key={index} className="inline-block">&nbsp;</span>;
-        }
-
-        const isGlitched = glitchedIndex === index;
-
-        // Default styling classes
-        const baseGradientClass = "text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400";
-        const baseNormalClass = "text-white";
-        const baseClass = item.isGradient ? baseGradientClass : baseNormalClass;
-
-        if (isGlitched) {
-          if (glitchPhase === "scramble") {
-            // Neon Green/Cyan Matrix coding style
-            if (activeStyle === "MATRIX") {
-              return (
-                <motion.span
-                  key={index}
-                  className="font-mono text-green-400 inline-block align-middle"
-                  style={{
-                    textShadow: "0 0 8px #22c55e, 0 0 15px #15803d",
-                  }}
-                  animate={{
-                    scale: [1, 1.2, 0.9, 1.1],
-                    y: [0, -2, 2, 0],
-                  }}
-                  transition={{ duration: 0.18 }}
-                >
-                  {currentDisplayChar}
-                </motion.span>
-              );
-            }
-            
-            // Cyberpunk magenta/cyan scramble style
-            if (activeStyle === "CYBERPUNK") {
-              return (
-                <motion.span
-                  key={index}
-                  className="font-mono text-pink-500 inline-block align-middle"
-                  style={{
-                    textShadow: "1px -1px 0 #06b6d4, -1px 1px 0 #f43f5e",
-                  }}
-                  animate={{
-                    scale: [1, 1.3, 0.8, 1.1],
-                    skewX: [0, 15, -15, 0],
-                  }}
-                  transition={{ duration: 0.18 }}
-                >
-                  {currentDisplayChar}
-                </motion.span>
-              );
-            }
-            
-            // Digital noise style (gray scale / binary)
+    <>
+      <span className="inline-flex select-none font-black" aria-hidden="true">
+        {LETTERS.map(({ char, isSpace, isGradient }, index) => {
+          if (isSpace) {
             return (
-              <motion.span
-                key={index}
-                className="font-mono text-gray-400 inline-block align-middle"
-                style={{
-                  textShadow: "0 0 5px #9ca3af",
-                }}
-                animate={{
-                  scaleY: [1, 0.6, 1.4, 1],
-                  x: [0, -3, 3, 0],
-                }}
-                transition={{ duration: 0.18 }}
-              >
-                {currentDisplayChar}
-              </motion.span>
+              <span key={index} className="inline-block">
+                &nbsp;
+              </span>
             );
           }
 
-          if (glitchPhase === "settled") {
-            // Settle Phase: letter returns, but in hacker styling
-            if (activeStyle === "MATRIX") {
-              return (
-                <motion.span
-                  key={index}
-                  className="font-mono text-green-300 inline-block font-bold align-middle"
-                  style={{
-                    fontFamily: '"Fira Code", "Courier New", Courier, monospace',
-                    textShadow: "0 0 8px #22c55e, 0 0 20px #15803d",
-                  }}
-                  animate={{ skewX: -10, scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {item.char}
-                </motion.span>
-              );
-            }
-
-            if (activeStyle === "CYBERPUNK") {
-              return (
-                <motion.span
-                  key={index}
-                  className="font-mono text-cyan-300 inline-block font-extrabold align-middle"
-                  style={{
-                    fontFamily: '"Courier New", Courier, monospace',
-                    textShadow: "2px -1px 0 #ef4444, -2px 1px 0 #3b82f6",
-                  }}
-                  animate={{ skewY: 5, scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {item.char}
-                </motion.span>
-              );
-            }
-
-            // NOISE
+          if (glitch?.index === index) {
+            const look = GLITCH_STYLES[glitch.style][glitch.phase];
             return (
-              <motion.span
+              <m.span
                 key={index}
-                className="font-mono text-purple-400 inline-block font-extrabold align-middle"
-                style={{
-                  fontFamily: '"Courier New", Courier, monospace',
-                  textShadow: "0 0 8px #c084fc",
-                }}
-                animate={{ y: -3, scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                className={look.className}
+                style={look.style}
+                animate={look.animate}
+                transition={look.transition}
               >
-                {item.char}
-              </motion.span>
+                {glitch.phase === "scramble" ? glitch.char : char}
+              </m.span>
             );
           }
-        }
 
-        // Standard render
-        return (
-          <span
-            key={index}
-            className={`${baseClass} transition-all duration-300 inline-block`}
-          >
-            {item.char}
-          </span>
-        );
-      })}
-    </span>
+          return (
+            <span key={index} className={`${isGradient ? GRADIENT_CLASS : "text-white"} transition-all duration-300 inline-block`}>
+              {char}
+            </span>
+          );
+        })}
+      </span>
+      {/* The animated letters are aria-hidden; assistive tech reads the plain name instead. */}
+      <span className="sr-only">{FULL_NAME}</span>
+    </>
   );
 }

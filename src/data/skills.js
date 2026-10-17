@@ -1,0 +1,80 @@
+// Skill categories for the "Skills & Expertise" grid; each card renders a floating skill cloud.
+export const SKILL_CATEGORIES = [
+  {
+    category: "Languages",
+    skills: [
+      "TypeScript",
+      "Python",
+      "Java",
+      "C++",
+      "JavaScript",
+      "SQL",
+      "C",
+      "Swift",
+    ],
+    icon: "💻",
+  },
+  {
+    category: "Frontend",
+    skills: [
+      "React",
+      "HTML/CSS",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Redux",
+    ],
+    icon: "🎨",
+  },
+  {
+    category: "Backend & Databases",
+    skills: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "PostgreSQL",
+      "MongoDB",
+      "GraphQL",
+      "Docker",
+    ],
+    icon: "⚙️",
+  },
+  {
+    category: "AI/ML & Data",
+    skills: [
+      "Machine Learning",
+      "Data Analysis",
+      "Jupyter",
+      "Classical ML",
+      "Image Processing",
+    ],
+    icon: "🧠",
+  },
+  {
+    category: "DevOps & Cloud",
+    skills: [
+      "AWS",
+      "Google Cloud",
+      "Azure",
+      "Kubernetes",
+      "Terraform",
+      "GitHub",
+      "CI/CD",
+    ],
+    icon: "☁️",
+  },
+  {
+    category: "Tools & Platforms",
+    skills: [
+      "Git",
+      "Vim",
+      "Linux",
+      "Figma",
+      "Slack",
+      "Trello",
+      "GitLab",
+      "Vercel",
+      "Photoshop",
+    ],
+    icon: "🛠️",
+  },
+];

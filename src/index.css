@@ -1,18 +1,36 @@
-@import "tailwindcss";
+/* Scan only src/ for class names. By default Tailwind scans every non-ignored file in the repo,
+   which once pulled ~16 kB of unused CSS out of a stale build bundle. */
+@import "tailwindcss" source(".");
 
+/*
+ * NOTE: these base rules are deliberately UNLAYERED.
+ *
+ * Tailwind v4 emits every utility inside `@layer utilities`, and unlayered rules beat layered
+ * ones regardless of selector specificity. So the `*` reset below overrides all of Tailwind's
+ * margin/padding utilities (p-*, px-*, m-*, mx-auto, space-y-*, ...), and the `.container`
+ * rule overrides `max-w-*`/`px-*` on container elements. That is why the components set
+ * spacing with inline `style` props. Moving these rules into `@layer base` would let those
+ * utilities apply and visibly change spacing across the whole site.
+ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* DEBUG: UNCOMMENT TO SEE OVERFLOWING ELEMENTS */
-  /* outline: 1px solid red !important; */
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Same as App's background, so there is no white flash before React mounts and no white
+     band when overscrolling. */
+  background-color: #030014;
 }
 
 body {
@@ -25,19 +43,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  scroll-behavior: smooth;
+#root {
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Ensure no elements expand beyond viewport width */
-*, *:before, *:after {
-  box-sizing: border-box;
+section {
+  width: 100%;
 }
 
-/* Force container to be contained */
 .container {
   width: 100%;
   max-width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+/* Project card fill stops (ProjectsSection.jsx). Registering them as colours lets the card
+   gradient interpolate on hover instead of snapping. */
+@property --card-fill-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --card-fill-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
 }
